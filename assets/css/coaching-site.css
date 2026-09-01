@@ -8,7 +8,7 @@
   background: rgba(240, 253, 244, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(215, 50, 32, 0.12);
+  border-bottom: 1px solid rgba(168, 140, 106, 0.12);
 }
 
 .site-nav .wrap {
@@ -53,7 +53,7 @@
 .nav-toggle {
   display: none;
   background: none;
-  border: 1px solid rgba(215, 50, 32, 0.3);
+  border: 1px solid rgba(168, 140, 106, 0.3);
   border-radius: 10px;
   width: 40px;
   height: 40px;
@@ -97,7 +97,7 @@
     flex-direction: column;
     align-items: stretch;
     background: #ffffff;
-    border-bottom: 1px solid rgba(215, 50, 32, 0.15);
+    border-bottom: 1px solid rgba(168, 140, 106, 0.15);
     padding: 10px 16px 16px;
     box-shadow: var(--shadow-soft);
     display: none;
@@ -212,15 +212,15 @@
 
 .section-alt {
   background: #ffffff;
-  border-top: 1px solid rgba(215, 50, 32, 0.1);
-  border-bottom: 1px solid rgba(215, 50, 32, 0.1);
+  border-top: 1px solid rgba(168, 140, 106, 0.1);
+  border-bottom: 1px solid rgba(168, 140, 106, 0.1);
 }
 
 /* ---------- Generic card ---------- */
 .card {
   background: #ffffff;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(215, 50, 32, 0.12);
+  border: 1px solid rgba(168, 140, 106, 0.12);
   box-shadow: var(--shadow-soft);
 }
 
@@ -239,7 +239,7 @@
 
 .stat-card {
   background: #ffffff;
-  border: 1px solid rgba(215, 50, 32, 0.15);
+  border: 1px solid rgba(168, 140, 106, 0.15);
   border-radius: var(--radius-md);
   padding: 22px 16px;
   text-align: center;
@@ -274,7 +274,7 @@
 .module-card {
   background: #ffffff;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(215, 50, 32, 0.14);
+  border: 1px solid rgba(168, 140, 106, 0.14);
   box-shadow: var(--shadow-soft);
   padding: 26px 24px;
 }
@@ -326,7 +326,7 @@
 .accordion-item {
   background: #ffffff;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(215, 50, 32, 0.15);
+  border: 1px solid rgba(168, 140, 106, 0.15);
   overflow: hidden;
 }
 
@@ -489,7 +489,7 @@
 .person-card {
   background: #ffffff;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(215, 50, 32, 0.14);
+  border: 1px solid rgba(168, 140, 106, 0.14);
   box-shadow: var(--shadow-soft);
   overflow: hidden;
 }
@@ -594,7 +594,7 @@
 .event-card {
   background: #ffffff;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(215, 50, 32, 0.14);
+  border: 1px solid rgba(168, 140, 106, 0.14);
   box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
@@ -615,7 +615,7 @@
 
 .event-top {
   padding: 18px 20px;
-  background: linear-gradient(135deg, var(--coaching-50), #ffffff);
+  background: #ecd9bb;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -705,7 +705,7 @@
   background: #ffffff;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(215, 50, 32, 0.14);
+  border: 1px solid rgba(168, 140, 106, 0.14);
   padding: 32px;
 }
 
@@ -867,7 +867,7 @@
   background: var(--coaching-600);
   color: #fff;
   border: none;
-  box-shadow: 0 14px 30px -10px rgba(215, 50, 32, 0.55);
+  box-shadow: 0 14px 30px -10px rgba(168, 140, 106, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -889,7 +889,7 @@
   background: #fff;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-hover);
-  border: 1px solid rgba(215, 50, 32, 0.15);
+  border: 1px solid rgba(168, 140, 106, 0.15);
   overflow: hidden;
   display: none;
   flex-direction: column;
@@ -967,7 +967,7 @@
 /* ---------- Roadmap (visual malla overview) ---------- */
 .roadmap {
   background: #fff;
-  border: 1px solid rgba(215, 50, 32, 0.12);
+  border: 1px solid rgba(168, 140, 106, 0.12);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   padding: 24px 24px 28px;
