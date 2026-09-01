@@ -17,15 +17,16 @@ body {
   min-height: 520px;
   display: flex;
   align-items: center;
-  background-image: url('../img/hero-office.svg');
+  background-image: url('../img/hero-oficina.jpg');
   background-size: cover;
-  background-position: center 40%;
+  background-position: center 32%;
   isolation: isolate;
 }
 
 @media (max-width: 640px) {
   .hero-band {
     min-height: 420px;
+    background-position: 75% 30%;
   }
 }
 
