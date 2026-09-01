@@ -40,7 +40,7 @@
 
 .nav-links a:hover,
 .nav-links a.active {
-  background: #dcfce7;
+  background: #f4dad7;
   color: var(--coaching-700);
 }
 
@@ -149,7 +149,7 @@
 }
 
 .btn-outline:hover {
-  background: #dcfce7;
+  background: #f4dad7;
 }
 
 .btn-ghost {
@@ -158,7 +158,7 @@
 }
 
 .btn-ghost:hover {
-  background: #dcfce7;
+  background: #f4dad7;
 }
 
 .btn-sm {

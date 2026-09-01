@@ -1,6 +1,6 @@
 body {
-  background: radial-gradient(circle at 15% 0%, #eef2ff 0%, transparent 45%),
-              radial-gradient(circle at 85% 10%, #ecfdf5 0%, transparent 40%),
+  background: radial-gradient(circle at 15% 0%, #fdf1ef 0%, transparent 45%),
+              radial-gradient(circle at 85% 10%, #fdf1ef 0%, transparent 40%),
               var(--surface-muted);
   min-height: 100vh;
 }

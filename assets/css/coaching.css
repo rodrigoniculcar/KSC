@@ -1,7 +1,7 @@
 body {
   background:
-    radial-gradient(circle at 20% -10%, #bbf7d0 0%, transparent 45%),
-    radial-gradient(circle at 100% 0%, #86efac 0%, transparent 35%),
+    radial-gradient(circle at 20% -10%, #edd6d4 0%, transparent 45%),
+    radial-gradient(circle at 100% 0%, #deb5b0 0%, transparent 35%),
     var(--coaching-50);
   min-height: 100vh;
 }
@@ -45,7 +45,7 @@ body {
 }
 
 .back-link:hover {
-  background: #dcfce7;
+  background: #f4dad7;
 }
 
 .coaching-hero {
@@ -60,7 +60,7 @@ body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--coaching-700);
-  background: #dcfce7;
+  background: #f4dad7;
   padding: 6px 16px;
   border-radius: 999px;
   margin-bottom: 22px;
