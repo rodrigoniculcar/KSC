@@ -2,8 +2,8 @@
   <title id="consultTitle">KSC Consultores</title>
   <defs>
     <linearGradient id="blueGrad" x1="10" y1="85" x2="90" y2="15" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#a82719"/>
-      <stop offset="1" stop-color="#e35141"/>
+      <stop offset="0" stop-color="#0284c7"/>
+      <stop offset="1" stop-color="#38bdf8"/>
     </linearGradient>
   </defs>
   <rect x="22" y="40" width="56" height="38" rx="6" stroke="url(#blueGrad)" stroke-width="6"/>
