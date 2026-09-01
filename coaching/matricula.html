@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matricúlate — KSC Coaching</title>
+  <meta name="description" content="Matricúlate en el Programa de Formación Profesional de Coaches KSC." />
+  <link rel="icon" href="../assets/img/logo-coaching.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/coaching.css" />
+  <link rel="stylesheet" href="../assets/css/coaching-site.css" />
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="../assets/img/logo-coaching.svg" alt="" />
+        KSC Coaching
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html" data-nav="index.html">Inicio</a></li>
+        <li><a href="malla.html" data-nav="malla.html">Malla</a></li>
+        <li><a href="eventos.html" data-nav="eventos.html">Eventos gratuitos</a></li>
+        <li><a href="agenda.html" data-nav="agenda.html">Agenda una reunión</a></li>
+        <li><a href="aula-virtual.html" data-nav="aula-virtual.html">Aula Virtual</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-primary btn-sm" href="matricula.html">Matricúlate</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="badge">Matrícula</span>
+      <h1>Matricúlate en KSC Coaching</h1>
+      <p>Completa tus datos y un asesor del equipo KSC se pondrá en contacto contigo para confirmar tu cupo y coordinar el pago. Cupos limitados por generación.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:20px;">
+    <div class="wrap" style="max-width:760px;">
+
+      <div class="demo-banner" style="margin-bottom:22px;">
+        <span>⚠️</span>
+        <span><strong>Sitio en etapa de demostración:</strong> este formulario aún no está conectado a un sistema de pago ni matrícula real. Al enviarlo, simularemos el flujo completo, incluyendo el acceso de ejemplo al Aula Virtual.</span>
+      </div>
+
+      <div class="form-card">
+        <form id="matriculaForm" class="form-body">
+          <div class="form-grid">
+            <div class="field">
+              <label for="nombres">Nombres *</label>
+              <input type="text" id="nombres" name="nombres" required />
+            </div>
+            <div class="field">
+              <label for="apellidos">Apellidos *</label>
+              <input type="text" id="apellidos" name="apellidos" required />
+            </div>
+            <div class="field">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="field">
+              <label for="telefono">Teléfono *</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+56 9 ..." required />
+            </div>
+            <div class="field">
+              <label for="ciudad">Ciudad / comuna</label>
+              <input type="text" id="ciudad" name="ciudad" />
+            </div>
+            <div class="field">
+              <label for="ocupacion">Ocupación actual</label>
+              <input type="text" id="ocupacion" name="ocupacion" />
+            </div>
+            <div class="field full">
+              <label for="conociste">¿Cómo te enteraste de KSC Coaching?</label>
+              <select id="conociste" name="conociste">
+                <option value="">Selecciona una opción</option>
+                <option>Redes sociales</option>
+                <option>Evento gratuito KSC</option>
+                <option>Recomendación de un conocido</option>
+                <option>Búsqueda en internet</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="comentario">Cuéntanos por qué quieres formarte como coach (opcional)</label>
+              <textarea id="comentario" name="comentario"></textarea>
+            </div>
+          </div>
+
+          <div class="field" style="flex-direction:row; align-items:flex-start; gap:10px; margin-top:18px;">
+            <input type="checkbox" id="acepto" name="acepto" required style="margin-top:4px;" />
+            <label for="acepto" style="font-weight:400;">Acepto ser contactado/a por el equipo de KSC Coaching para continuar el proceso de matrícula.</label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg">Enviar solicitud de matrícula</button>
+          </div>
+          <p class="form-sim-note">* Campos obligatorios. Este es un formulario de demostración: no se realiza ningún cobro ni se comparte tu información con terceros.</p>
+        </form>
+
+        <div id="matriculaSuccess" class="success-panel">
+          <div class="check">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>¡Tu solicitud de matrícula fue recibida!</h3>
+          <p>Un asesor de KSC Coaching se contactará contigo dentro de las próximas 48 horas hábiles para confirmar tu cupo y coordinar el pago del programa (valor y planes de financiamiento se informan en esta etapa).</p>
+          <p style="font-size:0.82rem;">Mientras se habilita el acceso real, puedes explorar una simulación de tu futura Aula Virtual:</p>
+          <div class="hero-actions" style="justify-content:center;">
+            <a class="btn btn-primary" href="aula-virtual.html?demo=1">Ingresar al Aula Virtual (demo) →</a>
+            <a class="btn btn-outline" href="index.html">Volver al inicio</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> KSC Coaching — Programa de Formación Profesional de Coaches.</p>
+      <p>Consultas: <a href="mailto:ltapia@ksconsultores.cl">ltapia@ksconsultores.cl</a> · <a href="mailto:eruiz@ksconsultores.cl">eruiz@ksconsultores.cl</a></p>
+      <p><a href="../index.html">&larr; Volver al portal KSC</a></p>
+    </div>
+  </footer>
+
+  <button class="help-fab" aria-label="Ayuda en línea">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  </button>
+  <div class="help-panel">
+    <div class="help-panel-head">
+      <h4>¿Necesitas ayuda?</h4>
+      <p>Resolvemos tus dudas sobre la matrícula</p>
+    </div>
+    <div class="help-panel-body">
+      <div class="help-faq-item">
+        <button class="help-faq-q">¿Cuál es el valor del programa?</button>
+        <div class="help-faq-a">El valor y los planes de financiamiento se informan al confirmar tu cupo. Escríbenos o agenda una reunión para conocer el detalle.</div>
+      </div>
+      <div class="help-faq-item">
+        <button class="help-faq-q">¿Cuántos cupos hay disponibles?</button>
+        <div class="help-faq-a">Cada generación tiene cupos limitados para asegurar un acompañamiento cercano en las prácticas de tríadas.</div>
+      </div>
+      <div class="help-faq-item">
+        <button class="help-faq-q">¿Cómo se realiza el pago?</button>
+        <div class="help-faq-a">Nuestro equipo te contactará para coordinar el pago al contado o en cuotas, una vez confirmada tu matrícula.</div>
+      </div>
+    </div>
+    <div class="help-panel-actions">
+      <a class="btn btn-outline btn-sm" href="agenda.html">Agenda una reunión</a>
+      <a class="btn btn-primary btn-sm" href="mailto:eruiz@ksconsultores.cl">Escríbenos por correo</a>
+    </div>
+  </div>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/forms.js"></script>
+  <script>
+    simulateSubmit('matriculaForm', 'matriculaSuccess');
+  </script>
+</body>
+</html>

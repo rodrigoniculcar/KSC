@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agenda una reunión — KSC Coaching</title>
+  <meta name="description" content="Agenda una reunión online por videoconferencia con el equipo de KSC Coaching." />
+  <link rel="icon" href="../assets/img/logo-coaching.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/coaching.css" />
+  <link rel="stylesheet" href="../assets/css/coaching-site.css" />
+  <style>
+    .agenda-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 36px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .agenda-layout { grid-template-columns: 1fr; }
+    }
+    .agenda-side h2 { font-family: var(--font-display); font-size: 1.6rem; margin: 0 0 14px; }
+    .agenda-side ul { padding-left: 18px; color: var(--ink-500); line-height: 1.8; }
+    .agenda-side .mini-stats { display:flex; gap:24px; margin-top:26px; flex-wrap:wrap; }
+    .agenda-side .mini-stats div { text-align:left; }
+    .agenda-side .mini-stats .n { font-family: var(--font-display); font-weight:700; font-size:1.4rem; color: var(--coaching-700); }
+    .agenda-side .mini-stats .l { font-size:0.78rem; color: var(--ink-500); }
+  </style>
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="../assets/img/logo-coaching.svg" alt="" />
+        KSC Coaching
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html" data-nav="index.html">Inicio</a></li>
+        <li><a href="malla.html" data-nav="malla.html">Malla</a></li>
+        <li><a href="eventos.html" data-nav="eventos.html">Eventos gratuitos</a></li>
+        <li><a href="agenda.html" data-nav="agenda.html">Agenda una reunión</a></li>
+        <li><a href="aula-virtual.html" data-nav="aula-virtual.html">Aula Virtual</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-primary btn-sm" href="matricula.html">Matricúlate</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="agenda-layout">
+        <div class="agenda-side">
+          <span class="badge">Reunión online</span>
+          <h2>Conversemos sobre tu proceso de formación</h2>
+          <p style="color:var(--ink-500); line-height:1.6;">Agenda una videollamada breve con el equipo de KSC Coaching. Resolvemos tus dudas sobre la malla, la modalidad, el financiamiento o cómo el programa se adapta a tu empresa.</p>
+          <ul>
+            <li>Reunión por videoconferencia (Zoom / Google Meet)</li>
+            <li>Duración aproximada: 20–30 minutos</li>
+            <li>Sin costo ni compromiso</li>
+          </ul>
+          <div class="mini-stats">
+            <div><div class="n">120 hrs</div><div class="l">Programa certificado</div></div>
+            <div><div class="n">24 sem.</div><div class="l">6 meses de formación</div></div>
+            <div><div class="n">ICF</div><div class="l">Estándares alineados</div></div>
+          </div>
+        </div>
+
+        <div class="form-card">
+
+          <div class="demo-banner" style="margin-bottom:20px;">
+            <span>⚠️</span>
+            <span><strong>Demostración:</strong> la agenda aún no está conectada a un calendario real. Al confirmar, verás cómo se vería la confirmación de tu reunión.</span>
+          </div>
+
+          <form id="agendaForm" class="form-body">
+            <div class="form-grid">
+              <div class="field">
+                <label for="a-nombre">Nombre *</label>
+                <input type="text" id="a-nombre" name="nombre" required />
+              </div>
+              <div class="field">
+                <label for="a-apellido">Apellido *</label>
+                <input type="text" id="a-apellido" name="apellido" required />
+              </div>
+              <div class="field">
+                <label for="a-email">Correo electrónico *</label>
+                <input type="email" id="a-email" name="email" required />
+              </div>
+              <div class="field">
+                <label for="a-telefono">Teléfono *</label>
+                <input type="tel" id="a-telefono" name="telefono" required />
+              </div>
+              <div class="field full">
+                <label for="a-motivo">Motivo de la reunión</label>
+                <select id="a-motivo" name="motivo">
+                  <option>Información general del programa</option>
+                  <option>Coaching ejecutivo / de equipos para mi empresa</option>
+                  <option>Financiamiento y formas de pago</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="a-fecha">Fecha preferida *</label>
+                <input type="date" id="a-fecha" name="fecha" required />
+              </div>
+              <div class="field">
+                <label>Horario preferido *</label>
+                <input type="hidden" id="a-horario" name="horario" />
+              </div>
+            </div>
+
+            <div class="field full" style="margin-top:6px;">
+              <label>Elige un bloque horario</label>
+              <div class="slot-grid" id="slotGrid">
+                <button type="button" class="slot" data-value="10:00">10:00</button>
+                <button type="button" class="slot" data-value="12:00">12:00</button>
+                <button type="button" class="slot" data-value="15:00">15:00</button>
+                <button type="button" class="slot" data-value="17:00">17:00</button>
+                <button type="button" class="slot" data-value="19:00">19:00</button>
+                <button type="button" class="slot" data-value="20:30">20:30</button>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-lg">Agendar reunión</button>
+            </div>
+            <p class="form-sim-note">* Campos obligatorios. Te enviaremos el link de la videollamada a tu correo antes de la reunión.</p>
+          </form>
+
+          <div id="agendaSuccess" class="success-panel">
+            <div class="check">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Tu reunión ha sido agendada</h3>
+            <p id="agendaSummary">Te contactaremos para confirmar el detalle.</p>
+            <p style="font-size:0.82rem;">Recibirás el link de la videoconferencia (Zoom / Google Meet) por correo antes de la reunión.</p>
+            <div class="hero-actions" style="justify-content:center;">
+              <a class="btn btn-primary" href="matricula.html">Matricúlate ahora</a>
+              <a class="btn btn-outline" href="index.html">Volver al inicio</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> KSC Coaching — Programa de Formación Profesional de Coaches.</p>
+      <p>Consultas: <a href="mailto:ltapia@ksconsultores.cl">ltapia@ksconsultores.cl</a> · <a href="mailto:eruiz@ksconsultores.cl">eruiz@ksconsultores.cl</a></p>
+      <p><a href="../index.html">&larr; Volver al portal KSC</a></p>
+    </div>
+  </footer>
+
+  <button class="help-fab" aria-label="Ayuda en línea">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  </button>
+  <div class="help-panel">
+    <div class="help-panel-head">
+      <h4>¿Necesitas ayuda?</h4>
+      <p>Resolvemos tus dudas antes de agendar</p>
+    </div>
+    <div class="help-panel-body">
+      <div class="help-faq-item">
+        <button class="help-faq-q">¿La reunión tiene costo?</button>
+        <div class="help-faq-a">No, es una reunión informativa sin costo ni compromiso.</div>
+      </div>
+      <div class="help-faq-item">
+        <button class="help-faq-q">¿Por qué plataforma se realiza?</button>
+        <div class="help-faq-a">Coordinamos la videollamada por Zoom o Google Meet, según tu preferencia.</div>
+      </div>
+    </div>
+    <div class="help-panel-actions">
+      <a class="btn btn-primary btn-sm" href="mailto:eruiz@ksconsultores.cl">Escríbenos por correo</a>
+    </div>
+  </div>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/forms.js"></script>
+  <script>
+    initSlotPicker('#slotGrid', '#a-horario');
+
+    simulateSubmit('agendaForm', 'agendaSuccess', {
+      beforeSubmit: (form) => {
+        if (!form.horario.value) {
+          alert('Por favor elige un bloque horario.');
+          return false;
+        }
+        return true;
+      },
+      onSuccess: (form) => {
+        const fecha = form.fecha.value;
+        const horario = form.horario.value;
+        const fechaFmt = fecha ? new Date(fecha + 'T00:00:00').toLocaleDateString('es-CL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '';
+        document.getElementById('agendaSummary').textContent =
+          `Quedó agendada para el ${fechaFmt} a las ${horario} hrs. Te escribiremos a ${form.email.value} para confirmar.`;
+      }
+    });
+  </script>
+</body>
+</html>

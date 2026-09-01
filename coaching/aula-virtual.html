@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aula Virtual — KSC Coaching</title>
+  <meta name="description" content="Simulación del Aula Virtual de KSC Coaching." />
+  <link rel="icon" href="../assets/img/logo-coaching.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/coaching.css" />
+  <link rel="stylesheet" href="../assets/css/coaching-site.css" />
+  <style>
+    body { background: var(--coaching-50); }
+    .lms-login-wrap {
+      min-height: calc(100vh - 74px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .lms-login-card {
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .lms-login-card .logo-mark { width: 64px; height: 64px; margin: 0 auto 16px; }
+    .lms-login-card h1 { font-family: var(--font-display); font-size: 1.5rem; margin: 0 0 8px; }
+    .lms-login-card p { color: var(--ink-500); font-size: 0.92rem; margin: 0 0 24px; }
+    .lms-login-card form { text-align: left; }
+
+    .lms-dashboard { display: none; }
+    .lms-dashboard.show { display: block; }
+    .lms-login-wrap.hide { display: none; }
+
+    .lms-topbar {
+      background: var(--ink-900);
+      color: #fff;
+      padding: 14px 0;
+    }
+    .lms-topbar .wrap { display:flex; align-items:center; justify-content:space-between; }
+    .lms-topbar .brand { color: #fff; }
+    .lms-topbar .lms-user { font-size: 0.85rem; opacity: 0.85; }
+
+    .lms-progress-track {
+      background: #e2e8f0;
+      border-radius: 999px;
+      height: 8px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .lms-progress-fill {
+      background: var(--coaching-500);
+      height: 100%;
+      border-radius: 999px;
+    }
+
+    .lms-module-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .lms-module-row:last-child { border-bottom: none; }
+    .lms-module-row .status-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .status-progress { background: #dcfce7; color: #15803d; }
+    .status-locked { background: #f1f5f9; color: #64748b; }
+  </style>
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="../assets/img/logo-coaching.svg" alt="" />
+        KSC Coaching
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html" data-nav="index.html">Inicio</a></li>
+        <li><a href="malla.html" data-nav="malla.html">Malla</a></li>
+        <li><a href="eventos.html" data-nav="eventos.html">Eventos gratuitos</a></li>
+        <li><a href="agenda.html" data-nav="agenda.html">Agenda una reunión</a></li>
+        <li><a href="aula-virtual.html" data-nav="aula-virtual.html">Aula Virtual</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-primary btn-sm" href="matricula.html">Matricúlate</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap" style="padding-top:16px;">
+    <div class="demo-banner">
+      <span>⚠️</span>
+      <span><strong>Esto es una simulación del Aula Virtual.</strong> Cuando la plataforma definitiva esté lista, este acceso se reemplazará por el enlace real a la plataforma de aprendizaje.</span>
+    </div>
+  </div>
+
+  <!-- LOGIN GATE -->
+  <div class="lms-login-wrap" id="loginWrap">
+    <div class="lms-login-card card" style="padding:36px 32px;">
+      <img class="logo-mark" src="../assets/img/logo-coaching.svg" alt="" />
+      <h1>Ingresa a tu Aula Virtual</h1>
+      <p>Simulación de acceso — usa cualquier correo y contraseña para continuar.</p>
+      <form id="loginForm">
+        <div class="field" style="margin-bottom:14px;">
+          <label for="lms-email">Correo electrónico</label>
+          <input type="email" id="lms-email" placeholder="tu@correo.com" required />
+        </div>
+        <div class="field" style="margin-bottom:20px;">
+          <label for="lms-pass">Contraseña</label>
+          <input type="password" id="lms-pass" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Ingresar (demo)</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="lms-dashboard" id="dashboard">
+    <section class="section-tight">
+      <div class="wrap">
+        <h2 style="font-family:var(--font-display); margin:0 0 4px;">Hola, <span id="lms-userName">futuro coach</span> 👋</h2>
+        <p style="color:var(--ink-500); margin:0 0 24px;">Este es tu panel de aprendizaje. Aquí encontrarás los módulos, materiales y tu progreso en el Programa de Formación Profesional de Coaches.</p>
+
+        <div class="stat-grid" style="margin-bottom:28px;">
+          <div class="stat-card">
+            <div class="num">1 / 4</div>
+            <div class="label">Módulos en curso</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">Sem. 2</div>
+            <div class="label">Semana actual (demo)</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">0 / 5</div>
+            <div class="label">Sesiones prácticas registradas</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">100%</div>
+            <div class="label">Asistencia (demo)</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="lms-module-row">
+            <div>
+              <strong>Módulo I — Bases, Fundamentos y Competencias Clave del Coaching</strong>
+              <div class="lms-progress-track" style="width:220px;"><div class="lms-progress-fill" style="width:32%;"></div></div>
+            </div>
+            <span class="status-badge status-progress">En curso</span>
+          </div>
+          <div class="lms-module-row">
+            <div><strong>Módulo II — Coaching Ontológico</strong></div>
+            <span class="status-badge status-locked">Se habilita al terminar Módulo I</span>
+          </div>
+          <div class="lms-module-row">
+            <div><strong>Módulo III — PNL y Herramientas Complementarias</strong></div>
+            <span class="status-badge status-locked">Bloqueado</span>
+          </div>
+          <div class="lms-module-row">
+            <div><strong>Módulo IV — Coaching Ejecutivo, Organizacional y Sistémico</strong></div>
+            <span class="status-badge status-locked">Bloqueado</span>
+          </div>
+        </div>
+
+        <div style="margin-top:28px; text-align:center;">
+          <a class="btn btn-outline" href="malla.html">Ver la malla completa</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> KSC Coaching — Programa de Formación Profesional de Coaches.</p>
+      <p>Consultas: <a href="mailto:ltapia@ksconsultores.cl">ltapia@ksconsultores.cl</a> · <a href="mailto:eruiz@ksconsultores.cl">eruiz@ksconsultores.cl</a></p>
+      <p><a href="../index.html">&larr; Volver al portal KSC</a></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js"></script>
+  <script>
+    const loginWrap = document.getElementById('loginWrap');
+    const dashboard = document.getElementById('dashboard');
+    const loginForm = document.getElementById('loginForm');
+
+    function showDashboard(name) {
+      loginWrap.classList.add('hide');
+      dashboard.classList.add('show');
+      if (name) document.getElementById('lms-userName').textContent = name;
+    }
+
+    const params = new URLSearchParams(location.search);
+    if (params.get('demo') === '1') {
+      showDashboard();
+    }
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('lms-email').value;
+      const name = email.split('@')[0] || 'futuro coach';
+      showDashboard(name);
+    });
+  </script>
+</body>
+</html>
