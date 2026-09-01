@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KSC — Elige tu camino</title>
+  <meta name="description" content="Portal central KSC: accede a KSC Consultores (administración de empresas) o a KSC Coaching (formación en coaching)." />
+  <link rel="icon" href="assets/img/logo-hub.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/portal.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="hub-header">
+      <div class="brand">
+        <img src="assets/img/logo-hub.svg" alt="" />
+        KSC
+      </div>
+    </header>
+
+    <section class="hero">
+      <span class="eyebrow">Portal central</span>
+      <h1>Bienvenido a <span>KSC</span></h1>
+      <p>Un mismo origen, dos caminos. Elige el sitio al que quieres ingresar.</p>
+    </section>
+
+    <section class="paths">
+      <a class="path-card consultores" href="https://ksconsultores.cl" rel="noopener">
+        <div class="path-icon">
+          <img src="assets/img/logo-consultores.svg" alt="" />
+        </div>
+        <span class="path-tag">Consultoría</span>
+        <h2>KSC Consultores</h2>
+        <p class="desc">Consultoría en administración de empresas: estrategia, gestión y acompañamiento para organizaciones.</p>
+        <span class="path-cta">Ir a ksconsultores.cl →</span>
+      </a>
+
+      <a class="path-card coaching" href="coaching/index.html">
+        <div class="path-icon">
+          <img src="assets/img/logo-coaching.svg" alt="" />
+        </div>
+        <span class="path-tag">Formación</span>
+        <h2>KSC Coaching</h2>
+        <p class="desc">Formación y desarrollo en coaching: programas, certificaciones y talleres para potenciar personas y equipos.</p>
+        <span class="path-cta">Ir al sitio →</span>
+      </a>
+    </section>
+
+    <footer class="hub-footer">
+      &copy; <span id="year"></span> KSC. Todos los derechos reservados.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

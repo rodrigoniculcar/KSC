@@ -1,0 +1,201 @@
+body {
+  background:
+    radial-gradient(circle at 20% -10%, #bbf7d0 0%, transparent 45%),
+    radial-gradient(circle at 100% 0%, #86efac 0%, transparent 35%),
+    var(--coaching-50);
+  min-height: 100vh;
+}
+
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--coaching-700);
+}
+
+.brand img {
+  width: 36px;
+  height: 36px;
+}
+
+.back-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--coaching-700);
+  border: 1px solid var(--coaching-500);
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.back-link:hover {
+  background: #dcfce7;
+}
+
+.coaching-hero {
+  text-align: center;
+  padding: 70px 0 40px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--coaching-700);
+  background: #dcfce7;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+
+.coaching-hero .logo-mark {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 20px;
+}
+
+.coaching-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin: 0 0 16px;
+  color: var(--ink-900);
+}
+
+.coaching-hero h1 em {
+  font-style: normal;
+  color: var(--coaching-600);
+}
+
+.coaching-hero p {
+  color: var(--ink-700);
+  font-size: 1.1rem;
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 30px 0 50px;
+}
+
+@media (max-width: 720px) {
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillar {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 26px 22px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(22, 163, 74, 0.12);
+}
+
+.pillar .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--coaching-500);
+  margin-bottom: 14px;
+}
+
+.pillar h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+  color: var(--ink-900);
+}
+
+.pillar p {
+  margin: 0;
+  color: var(--ink-500);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.notify {
+  text-align: center;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 60px;
+}
+
+.notify h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0 0 10px;
+}
+
+.notify p {
+  color: var(--ink-500);
+  margin: 0 0 22px;
+}
+
+.notify-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.notify-form input[type="email"] {
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--ink-300);
+  min-width: 260px;
+  font-size: 0.95rem;
+}
+
+.notify-form button {
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  background: var(--coaching-600);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.notify-form button:hover {
+  background: var(--coaching-700);
+}
+
+.form-note {
+  font-size: 0.78rem;
+  color: var(--ink-500);
+  margin-top: 12px;
+}
+
+.site-footer {
+  border-top: 1px solid rgba(22, 163, 74, 0.15);
+  padding: 24px 0 40px;
+  color: var(--ink-500);
+  font-size: 0.85rem;
+  text-align: center;
+}

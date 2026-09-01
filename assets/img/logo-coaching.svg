@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-labelledby="coachTitle">
+  <title id="coachTitle">KSC Coaching</title>
+  <defs>
+    <linearGradient id="greenGrad" x1="10" y1="85" x2="90" y2="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16a34a"/>
+      <stop offset="1" stop-color="#4ade80"/>
+    </linearGradient>
+  </defs>
+  <circle cx="48" cy="54" r="33" stroke="url(#greenGrad)" stroke-width="7" stroke-linecap="round"
+          stroke-dasharray="150 60" transform="rotate(140 48 54)"/>
+  <path d="M40 62 L68 34 M68 34 L68 50 M68 34 L52 34"
+        stroke="url(#greenGrad)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

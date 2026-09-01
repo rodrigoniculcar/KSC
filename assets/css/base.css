@@ -1,0 +1,56 @@
+/* KSC — shared design tokens */
+:root {
+  --font-display: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  --ink-900: #0f172a;
+  --ink-700: #334155;
+  --ink-500: #64748b;
+  --ink-300: #cbd5e1;
+  --surface: #ffffff;
+  --surface-muted: #f8fafc;
+
+  --consultores-600: #2563eb;
+  --consultores-700: #1d4ed8;
+  --consultores-50: #eff6ff;
+
+  --coaching-500: #22c55e;
+  --coaching-600: #16a34a;
+  --coaching-700: #15803d;
+  --coaching-50: #f0fdf4;
+
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --shadow-soft: 0 20px 45px -20px rgba(15, 23, 42, 0.25);
+  --shadow-hover: 0 28px 60px -18px rgba(15, 23, 42, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}

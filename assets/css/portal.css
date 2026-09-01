@@ -1,0 +1,215 @@
+body {
+  background: radial-gradient(circle at 15% 0%, #eef2ff 0%, transparent 45%),
+              radial-gradient(circle at 85% 10%, #ecfdf5 0%, transparent 40%),
+              var(--surface-muted);
+  min-height: 100vh;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.hub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.brand img {
+  width: 34px;
+  height: 34px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 56px 0 24px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  background: var(--surface);
+  border: 1px solid var(--ink-300);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, var(--consultores-600), var(--coaching-600));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: var(--ink-500);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding: 48px 0 40px;
+}
+
+@media (max-width: 760px) {
+  .paths {
+    grid-template-columns: 1fr;
+  }
+}
+
+.path-card {
+  position: relative;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.path-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.path-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+}
+
+.path-card.consultores::before {
+  background: linear-gradient(90deg, var(--consultores-700), var(--consultores-600));
+}
+
+.path-card.coaching::before {
+  background: linear-gradient(90deg, var(--coaching-600), var(--coaching-500));
+}
+
+.path-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.path-card.consultores .path-icon {
+  background: var(--consultores-50);
+}
+
+.path-card.coaching .path-icon {
+  background: var(--coaching-50);
+}
+
+.path-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.path-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.path-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.path-card.consultores .path-tag {
+  color: var(--consultores-600);
+}
+
+.path-card.coaching .path-tag {
+  color: var(--coaching-700);
+}
+
+.path-card p.desc {
+  color: var(--ink-500);
+  margin: 0;
+  flex-grow: 1;
+  line-height: 1.55;
+}
+
+.path-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 999px;
+  width: fit-content;
+  transition: gap 0.2s ease, background 0.2s ease;
+}
+
+.path-card.consultores .path-cta {
+  background: var(--consultores-600);
+  color: #fff;
+}
+
+.path-card.consultores .path-cta:hover {
+  background: var(--consultores-700);
+  gap: 12px;
+}
+
+.path-card.coaching .path-cta {
+  background: var(--coaching-600);
+  color: #fff;
+}
+
+.path-card.coaching .path-cta:hover {
+  background: var(--coaching-700);
+  gap: 12px;
+}
+
+/* Footer */
+.hub-footer {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 24px 0 40px;
+  color: var(--ink-500);
+  font-size: 0.85rem;
+  text-align: center;
+}
