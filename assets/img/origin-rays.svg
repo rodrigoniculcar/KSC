@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" fill="none" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="rayLeft" x1="600" y1="0" x2="120" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd" stop-opacity="0.35"/>
+      <stop offset="0.45" stop-color="#38bdf8" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#0284c7" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="rayRight" x1="600" y1="0" x2="1080" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbd0c6" stop-opacity="0.35"/>
+      <stop offset="0.45" stop-color="#e35141" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#a82719" stop-opacity="0.9"/>
+    </linearGradient>
+    <radialGradient id="origin-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft-ray" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <filter id="soft-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <circle cx="600" cy="6" r="90" fill="url(#origin-glow)" filter="url(#soft-glow)"/>
+
+  <path filter="url(#soft-ray)" fill="url(#rayLeft)"
+        d="M560,0 C460,110 320,170 220,260 C140,335 90,375 40,420
+           L460,420 C440,330 430,230 460,150 C480,90 520,40 600,0 Z"/>
+
+  <path filter="url(#soft-ray)" fill="url(#rayRight)"
+        d="M640,0 C740,110 880,170 980,260 C1060,335 1110,375 1160,420
+           L740,420 C760,330 770,230 740,150 C720,90 680,40 600,0 Z"/>
+
+  <circle cx="600" cy="4" r="9" fill="#ffffff"/>
+  <circle cx="600" cy="4" r="9" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+</svg>

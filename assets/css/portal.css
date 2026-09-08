@@ -6,7 +6,7 @@ body {
 }
 
 .wrap {
-  max-width: 1080px;
+  max-width: 1160px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -123,17 +123,43 @@ body {
   margin: 0 auto;
 }
 
+/* Origin rays — decorative split from one origin to both cards */
+.origin-stage {
+  position: relative;
+}
+
+.origin-rays {
+  position: absolute;
+  top: -96px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, 96%);
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 760px) {
+  .origin-rays {
+    display: none;
+  }
+}
+
 /* Cards */
 .paths {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  padding: 48px 0 40px;
+  gap: 36px;
+  padding: 96px 0 48px;
 }
 
 @media (max-width: 760px) {
   .paths {
     grid-template-columns: 1fr;
+    padding-top: 48px;
   }
 }
 
@@ -141,12 +167,12 @@ body {
   position: relative;
   background: var(--surface);
   border-radius: var(--radius-lg);
-  padding: 40px 32px;
-  box-shadow: var(--shadow-soft);
+  padding: 56px 44px;
+  box-shadow: var(--shadow-hover);
   border: 1px solid rgba(15, 23, 42, 0.06);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 22px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   overflow: hidden;
 }
@@ -172,9 +198,9 @@ body {
 }
 
 .path-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -189,18 +215,18 @@ body {
 }
 
 .path-icon img {
-  width: 30px;
-  height: 30px;
+  width: 42px;
+  height: 42px;
 }
 
 .path-card h2 {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.9rem;
   margin: 0;
 }
 
 .path-tag {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -218,7 +244,8 @@ body {
   color: var(--ink-500);
   margin: 0;
   flex-grow: 1;
-  line-height: 1.55;
+  line-height: 1.65;
+  font-size: 1.06rem;
 }
 
 .path-cta {
@@ -226,7 +253,8 @@ body {
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  padding: 12px 20px;
+  font-size: 1.02rem;
+  padding: 15px 26px;
   border-radius: 999px;
   width: fit-content;
   transition: gap 0.2s ease, background 0.2s ease;
