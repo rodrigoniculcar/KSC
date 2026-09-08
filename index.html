@@ -8,55 +8,66 @@
   <link rel="icon" href="assets/img/logo-hub.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/portal.css" />
 </head>
 <body>
-  <div class="hero-band">
-    <div class="wrap">
-      <header class="hub-header">
-        <div class="brand">
-          <img src="assets/img/logo-hub.svg" alt="" />
-          KSC
-        </div>
-      </header>
-
-      <section class="hero">
-        <span class="eyebrow">Portal central</span>
-        <h1>Bienvenido a <span>KSC</span></h1>
-        <p>Un mismo origen, dos caminos. Elige el sitio al que quieres ingresar.</p>
-      </section>
+  <div class="portal">
+    <div class="bg">
+      <img src="assets/img/hero-oficina.jpg" alt="" />
+      <div class="veil"></div>
+      <svg class="beam" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="0" y1="0" x2="100" y2="100" stroke="#201e1d" stroke-width="3" vector-effect="non-scaling-stroke"></line>
+      </svg>
     </div>
-  </div>
 
-  <div class="wrap origin-stage">
-    <img class="origin-rays" src="assets/img/origin-rays.svg" alt="" aria-hidden="true" />
+    <header class="bar">
+      <div class="brand"><span class="mark">KSC</span><span class="meta">Portal de acceso</span></div>
+      <span class="meta">Elija su destino</span>
+    </header>
 
-    <section class="paths">
-      <a class="path-card consultores" href="https://ksconsultores.cl" rel="noopener">
-        <div class="path-icon">
-          <img src="assets/img/logo-consultores.svg" alt="" />
+    <main class="gates">
+      <a class="gate gate--asesoria" href="https://ksconsultores.cl" rel="noopener">
+        <div class="top">
+          <div class="plate"></div>
+          <span class="kicker">01 &mdash; Asesor&iacute;a</span>
         </div>
-        <span class="path-tag">Consultoría</span>
-        <h2>KSC Consultores</h2>
-        <p class="desc">Consultoría en administración de empresas: estrategia, gestión y acompañamiento para organizaciones.</p>
-        <span class="path-cta">Ir a ksconsultores.cl →</span>
+        <h1>KSC<br />Consultores</h1>
+        <div class="bottom">
+          <p>Consultor&iacute;a en administraci&oacute;n de empresas: estrategias, gesti&oacute;n y acompa&ntilde;amiento a organizaciones.</p>
+          <span class="cta">Entrar<span aria-hidden="true">&#8594;</span></span>
+        </div>
       </a>
 
-      <a class="path-card coaching" href="coaching/index.html">
-        <div class="path-icon">
-          <img src="assets/img/logo-coaching.svg" alt="" />
-        </div>
-        <span class="path-tag">Formación</span>
-        <h2>KSC Coaching</h2>
-        <p class="desc">Formación y desarrollo en coaching: programas, certificaciones y talleres para potenciar personas y equipos.</p>
-        <span class="path-cta">Ir al sitio →</span>
-      </a>
-    </section>
+      <div class="prism" aria-hidden="true">
+        <div class="cap"></div>
+        <div class="tri tri-out"></div>
+        <div class="tri tri-in"></div>
+        <span style="background: var(--s1)"></span>
+        <span style="background: var(--s2)"></span>
+        <span style="background: var(--s3)"></span>
+        <span style="background: var(--s4)"></span>
+        <span style="background: var(--s5)"></span>
+        <span style="background: var(--s6)"></span>
+      </div>
 
-    <footer class="hub-footer">
-      &copy; <span id="year"></span> KSC. Todos los derechos reservados.
+      <a class="gate gate--coaching" href="coaching/index.html">
+        <div class="top">
+          <div class="plate"></div>
+          <span class="kicker">02 &mdash; Coaching</span>
+        </div>
+        <h1>KSC<br />Coaching</h1>
+        <div class="bottom">
+          <p>Formaci&oacute;n y desarrollo en coaching: programas, certificaciones y talleres para potenciar personas y equipos.</p>
+          <span class="cta">Entrar<span aria-hidden="true">&#8594;</span></span>
+        </div>
+      </a>
+    </main>
+
+    <footer class="bar">
+      <span class="meta">KSC &middot; Un mismo origen, dos caminos</span>
+      <span class="meta" id="year"></span>
     </footer>
   </div>
 
