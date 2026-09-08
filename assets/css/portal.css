@@ -40,7 +40,7 @@ body {
   flex-direction: column;
 }
 
-/* Background: grayscale photo + flat veil + light beam */
+/* Background: grayscale photo + flat veil */
 .bg {
   position: absolute;
   inset: 0;
@@ -62,14 +62,6 @@ body {
   position: absolute;
   inset: 0;
   background: var(--veil);
-}
-
-.beam {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 126px;
 }
 
 /* Header / footer bars */
@@ -280,10 +272,6 @@ main.gates {
 
   .prism .cap,
   .prism .tri {
-    display: none;
-  }
-
-  .beam {
     display: none;
   }
 
