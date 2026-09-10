@@ -5,10 +5,16 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(240, 253, 244, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(168, 140, 106, 0.12);
+  background: var(--coaching-600);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.site-nav .brand {
+  color: #fff;
+}
+
+.site-nav .brand img {
+  filter: brightness(0) invert(1);
 }
 
 .site-nav .wrap {
@@ -34,13 +40,13 @@
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--ink-700);
+  color: rgba(255, 255, 255, 0.9);
   transition: background 0.2s ease, color 0.2s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  background: #f4dad7;
+  background: #fff;
   color: var(--coaching-700);
 }
 
@@ -53,7 +59,7 @@
 .nav-toggle {
   display: none;
   background: none;
-  border: 1px solid rgba(168, 140, 106, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   width: 40px;
   height: 40px;
@@ -69,7 +75,7 @@
   display: block;
   width: 18px;
   height: 2px;
-  background: var(--coaching-700);
+  background: #fff;
   position: relative;
   transition: transform 0.2s ease;
 }
@@ -109,6 +115,12 @@
 
   .nav-links a {
     padding: 12px 14px;
+    color: var(--ink-700);
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--coaching-700);
   }
 
   .nav-cta .btn span.btn-full-label {
@@ -133,32 +145,32 @@
 }
 
 .btn-primary {
-  background: var(--coaching-600);
+  background: var(--consultores-600);
   color: #fff;
 }
 
 .btn-primary:hover {
-  background: var(--coaching-700);
+  background: var(--consultores-700);
   transform: translateY(-1px);
 }
 
 .btn-outline {
   background: transparent;
-  border-color: var(--coaching-500);
-  color: var(--coaching-700);
+  border-color: var(--consultores-500);
+  color: var(--consultores-700);
 }
 
 .btn-outline:hover {
-  background: #f4dad7;
+  background: var(--consultores-50);
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--coaching-700);
+  color: var(--consultores-700);
 }
 
 .btn-ghost:hover {
-  background: #f4dad7;
+  background: var(--consultores-50);
 }
 
 .btn-sm {
