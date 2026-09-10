@@ -93,6 +93,45 @@ body {
   line-height: 1.6;
 }
 
+/* Compact, more transparent variant for the home hero panel */
+.coaching-hero.hero-photo-panel {
+  max-width: 480px;
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: none;
+}
+
+.coaching-hero.hero-photo-panel .badge {
+  font-size: 0.66rem;
+  padding: 5px 12px;
+  margin-bottom: 12px;
+}
+
+.coaching-hero.hero-photo-panel .logo-mark {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 10px;
+}
+
+.coaching-hero.hero-photo-panel h1 {
+  font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+
+.coaching-hero.hero-photo-panel p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+.coaching-hero.hero-photo-panel .hero-actions {
+  margin-top: 14px;
+  gap: 8px;
+}
+
 .pillars {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
