@@ -154,6 +154,25 @@ body {
   z-index: 4;
 }
 
+.rainbow-edge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  z-index: 7;
+  background: linear-gradient(
+    90deg,
+    #ff2d1a 0%,
+    #ff8c00 16.6%,
+    #ffd400 33.3%,
+    #00b34a 50%,
+    #00a8d6 66.6%,
+    #7a1ff0 83.3%,
+    #ff2d1a 100%
+  );
+}
+
 .topbar {
   position: absolute;
   top: 0;
