@@ -1219,7 +1219,8 @@ body::before {
 
 /* Direct-on-photo hero (no glass panel), matching Concepto C */
 .coaching-hero-band .wrap {
-  padding: 40px 0 44px;
+  width: 100%;
+  padding: 40px 24px 44px;
 }
 
 .hero-tags {
