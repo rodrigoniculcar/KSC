@@ -1,26 +1,17 @@
 /* KSC Coaching — shared site chrome & components */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Propuesta A — Cálido Editorial */
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Archivo', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Archivo', 'Segoe UI', system-ui, sans-serif;
+}
 
-  --coaching-500: #cf7f36;
-  --coaching-600: #b5651d;
-  --coaching-700: #8c5526;
-  --coaching-50: #f3e0cc;
-
-  --consultores-500: #7c9184;
-  --consultores-600: #5f7161;
-  --consultores-700: #445243;
-  --consultores-50: #e4e9e0;
-
-  --ink-900: #2b1c12;
-  --ink-700: #4a3a2c;
-  --ink-500: #6b5a4a;
-  --ink-300: #ddd0bf;
+body::before {
+  content: '';
+  display: block;
+  height: 28px;
+  background: var(--ink-900);
 }
 
 .site-nav .brand {
@@ -68,7 +59,7 @@
 
 .nav-links a:hover,
 .nav-links a.active {
-  background: #f3e0cc;
+  background: #f4dad7;
   color: var(--coaching-700);
 }
 
@@ -177,7 +168,7 @@
 }
 
 .btn-outline:hover {
-  background: #f3e0cc;
+  background: #f4dad7;
 }
 
 .btn-ghost {
@@ -186,7 +177,7 @@
 }
 
 .btn-ghost:hover {
-  background: #f3e0cc;
+  background: #f4dad7;
 }
 
 .btn-sm {
@@ -1195,10 +1186,10 @@
 
 .photo-band.photo-band-dark::before {
   background: linear-gradient(0deg,
-    rgba(43, 28, 18, 0.92) 0%,
-    rgba(43, 28, 18, 0.66) 48%,
-    rgba(43, 28, 18, 0.22) 80%,
-    rgba(43, 28, 18, 0.05) 100%);
+    rgba(10, 12, 16, 0.92) 0%,
+    rgba(10, 12, 16, 0.66) 48%,
+    rgba(10, 12, 16, 0.22) 80%,
+    rgba(10, 12, 16, 0.05) 100%);
 }
 
 .photo-band.photo-band-dark {
@@ -1263,10 +1254,9 @@
 }
 
 .hero-band-title {
-  font-family: var(--font-display);
   margin: 0 0 16px;
   font-size: clamp(1.9rem, 4vw, 2.6rem);
-  font-weight: 600;
+  font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.02em;
   max-width: 760px;
@@ -1396,16 +1386,110 @@
    chrome/components so page markup and copy stay untouched.
    ========================================================= */
 
+/* Thin celeste/rojizo bar echoing the portal's two paths */
 .site-nav {
   position: sticky;
   top: 0;
-  background: rgba(253, 246, 238, 0.92);
+  background: rgba(251, 247, 240, 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
+.site-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  display: flex;
+  background: linear-gradient(90deg, var(--coaching-600) 50%, var(--consultores-600) 50%);
+}
+
 .site-footer {
-  border-top: 1px solid var(--ink-300);
+  position: relative;
+  border-top: none;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--coaching-600), var(--consultores-600));
+}
+
+/* Dual accent bar across every full-bleed photo hero */
+.photo-band {
+  position: relative;
+}
+
+.photo-band::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 1;
+  background: linear-gradient(90deg, var(--coaching-600) 50%, var(--consultores-600) 50%);
+}
+
+/* Flat, sharp-edged surfaces instead of soft rounded shadows */
+.card,
+.pillar,
+.module-card,
+.stat-card,
+.event-card,
+.person-card,
+.accordion-item,
+.form-card,
+.notify,
+.roadmap,
+.modal-box,
+.help-panel,
+.demo-banner,
+.side-photo,
+.hero-photo-panel,
+.event-photo,
+.person-photo {
+  border-radius: 0;
+}
+
+.card,
+.pillar,
+.module-card,
+.stat-card,
+.event-card,
+.person-card,
+.accordion-item,
+.form-card,
+.notify,
+.roadmap {
+  box-shadow: none;
+}
+
+/* Alternating celeste/ink/rojizo top rule on pillar & module cards */
+.pillars .pillar {
+  border-top: 4px solid var(--coaching-600);
+}
+
+.pillars .pillar:nth-child(3n+2) {
+  border-top-color: var(--ink-900);
+}
+
+.pillars .pillar:nth-child(3n+3) {
+  border-top-color: var(--consultores-600);
+}
+
+.module-grid .module-card {
+  border-top: 4px solid var(--coaching-600);
+}
+
+.module-grid .module-card:nth-child(even) {
+  border-top-color: var(--consultores-600);
 }
 
 .stat-card:nth-child(odd) .num {
@@ -1416,10 +1500,41 @@
   color: var(--consultores-700);
 }
 
+/* Badges: flat label flanked by the two brand colors */
+.badge {
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge::before,
+.badge::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+}
+
+.badge::before {
+  background: var(--coaching-600);
+}
+
+.badge::after {
+  background: var(--consultores-600);
+}
+
+/* Flat buttons, bolder Archivo weight */
+.btn {
+  border-radius: 2px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 .page-hero h1,
 .section-head h2,
 .coaching-hero h1,
 .notify h2 {
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: -0.01em;
 }

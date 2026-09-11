@@ -45,7 +45,7 @@ body {
 }
 
 .back-link:hover {
-  background: #f3e0cc;
+  background: #f4dad7;
 }
 
 .coaching-hero {
@@ -60,7 +60,7 @@ body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--coaching-700);
-  background: #f3e0cc;
+  background: #f4dad7;
   padding: 6px 16px;
   border-radius: 999px;
   margin-bottom: 22px;
