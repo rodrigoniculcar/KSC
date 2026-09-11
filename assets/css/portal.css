@@ -40,6 +40,7 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
+  z-index: 1;
 }
 
 .side.left img {
@@ -54,11 +55,36 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(10, 12, 16, 0.82) 10%, rgba(10, 12, 16, 0.32) 55%, rgba(10, 12, 16, 0.1) 100%);
+  z-index: 2;
+  background: linear-gradient(0deg, rgba(8, 10, 14, 0.9) 0%, rgba(8, 10, 14, 0.68) 42%, rgba(8, 10, 14, 0.22) 72%, rgba(8, 10, 14, 0.02) 100%);
+}
+
+.side::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+}
+
+.side.left::after {
+  background: rgba(196, 45, 32, 0.5);
+}
+
+.side.right::after {
+  background: rgba(14, 165, 233, 0.5);
+}
+
+.side:hover::after,
+.side:focus-visible::after {
+  opacity: 1;
 }
 
 .side .content {
   position: relative;
+  z-index: 4;
   padding: clamp(28px, 5vh, 56px) clamp(24px, 5vw, 64px);
 }
 
