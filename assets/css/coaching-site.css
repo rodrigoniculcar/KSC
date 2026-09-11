@@ -1217,9 +1217,15 @@ body::before {
   color: var(--ink-900);
 }
 
+/* Keep any photo-band hero's text wrap at full width instead of
+   shrinking to its content as a flex item (which threw off the
+   auto-margin centering and misaligned it from the nav above). */
+.photo-band .wrap {
+  width: 100%;
+}
+
 /* Direct-on-photo hero (no glass panel), matching Concepto C */
 .coaching-hero-band .wrap {
-  width: 100%;
   padding: 40px 24px 44px;
 }
 
