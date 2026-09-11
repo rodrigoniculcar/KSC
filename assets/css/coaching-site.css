@@ -1200,6 +1200,79 @@
   padding: 0;
 }
 
+/* Direct-on-photo hero (no glass panel), matching Concepto C */
+.coaching-hero-band .wrap {
+  padding: 40px 0 44px;
+}
+
+.hero-tags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.hero-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+}
+
+.hero-tag-rojizo {
+  background: var(--coaching-600);
+  color: #fff;
+}
+
+.hero-tag-celeste {
+  background: var(--consultores-600);
+  color: #04202e;
+}
+
+.hero-band-title {
+  margin: 0 0 16px;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 760px;
+  color: #fff;
+}
+
+.hero-band-text {
+  margin: 0 0 26px;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.photo-band-dark .hero-actions .btn-primary {
+  background: #fff;
+  color: var(--ink-900);
+}
+
+.photo-band-dark .hero-actions .btn-primary:hover {
+  background: #f1f1f1;
+}
+
+.photo-band-dark .hero-actions .btn-outline {
+  border-color: #fff;
+  color: #fff;
+}
+
+.photo-band-dark .hero-actions .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.photo-band-dark .hero-actions .btn-ghost {
+  color: #fff;
+}
+
+.photo-band-dark .hero-actions .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .hero-photo-panel {
   text-align: center;
   padding: 40px 48px;
