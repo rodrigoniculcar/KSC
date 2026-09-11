@@ -1173,9 +1173,11 @@
 }
 
 .photo-band.photo-band-dark::before {
-  background: linear-gradient(180deg,
-    rgba(6, 40, 21, 0.55) 0%,
-    rgba(6, 40, 21, 0.72) 100%);
+  background: linear-gradient(0deg,
+    rgba(10, 12, 16, 0.92) 0%,
+    rgba(10, 12, 16, 0.66) 48%,
+    rgba(10, 12, 16, 0.22) 80%,
+    rgba(10, 12, 16, 0.05) 100%);
 }
 
 .photo-band.photo-band-dark {
@@ -1183,13 +1185,19 @@
 }
 
 .photo-band.photo-band-dark .section-head h2,
-.photo-band.photo-band-dark .notify h2 {
+.photo-band.photo-band-dark .notify h2,
+.photo-band.photo-band-dark.page-hero h1 {
   color: #fff;
 }
 
 .photo-band.photo-band-dark .section-head p,
-.photo-band.photo-band-dark .notify p {
-  color: rgba(255, 255, 255, 0.85);
+.photo-band.photo-band-dark .notify p,
+.photo-band.photo-band-dark.page-hero p {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.photo-band.photo-band-dark.page-hero {
+  padding: 0;
 }
 
 .hero-photo-panel {
