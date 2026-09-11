@@ -1395,17 +1395,6 @@ body::before {
   -webkit-backdrop-filter: blur(10px);
 }
 
-.site-nav::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  display: flex;
-  background: linear-gradient(90deg, var(--coaching-600) 50%, var(--consultores-600) 50%);
-}
-
 .site-footer {
   position: relative;
   border-top: none;
@@ -1424,17 +1413,6 @@ body::before {
 /* Dual accent bar across every full-bleed photo hero */
 .photo-band {
   position: relative;
-}
-
-.photo-band::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  z-index: 1;
-  background: linear-gradient(90deg, var(--coaching-600) 50%, var(--consultores-600) 50%);
 }
 
 /* Flat, sharp-edged surfaces instead of soft rounded shadows */
