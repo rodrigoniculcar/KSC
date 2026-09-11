@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Interior — Concepto C: Dual-tono (origen compartido)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #14161a;
+    --celeste: #0ea5e9;
+    --celeste-dark: #0369a1;
+    --rojizo: #e35141;
+    --rojizo-dark: #a82719;
+    --paper: #f6f6f5;
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; font-family:'Archivo', system-ui, sans-serif; color:var(--ink); background:var(--paper); }
+  img { display:block; max-width:100%; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 32px; }
+  .label { text-align:center; background:var(--ink); color:#fff; padding:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:.82rem; }
+
+  .dualbar { height:4px; display:flex; }
+  .dualbar span { flex:1; }
+  .dualbar span:first-child { background:var(--rojizo); }
+  .dualbar span:last-child { background:var(--celeste); }
+
+  .nav { display:flex; align-items:center; padding:18px 0; border-bottom:1px solid #dcdcda; }
+  .nav .wrap { display:flex; align-items:center; justify-content:space-between; width:100%; }
+  .brand { font-weight:800; font-size:1.15rem; letter-spacing:-.01em; display:flex; align-items:center; gap:8px; }
+  .brand .dot { width:8px; height:8px; border-radius:50%; background:var(--rojizo); box-shadow:12px 0 0 var(--celeste); margin-right:14px; }
+  .navlinks { display:flex; gap:28px; list-style:none; margin:0; padding:0; font-weight:600; font-size:.9rem; }
+  .navlinks a { color:var(--ink); text-decoration:none; opacity:.72; }
+  .navlinks a.active { opacity:1; }
+  .btn-cta { background:var(--ink); color:#fff; font-weight:700; font-size:.88rem; padding:12px 22px; text-decoration:none; }
+
+  .hero { position:relative; min-height:380px; display:flex; align-items:flex-end; overflow:hidden; }
+  .hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; z-index:0; filter:saturate(1.02); }
+  .hero::before { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg, rgba(10,12,16,.92) 0%, rgba(10,12,16,.62) 50%, rgba(10,12,16,.18) 80%, rgba(10,12,16,0) 100%); }
+  .dualbar-top { position:absolute; top:0; left:0; right:0; height:4px; display:flex; z-index:3; }
+  .dualbar-top span { flex:1; }
+  .dualbar-top span:first-child { background:var(--rojizo); }
+  .dualbar-top span:last-child { background:var(--celeste); }
+  .hero .wrap { position:relative; z-index:2; padding-top:36px; padding-bottom:32px; color:#fff; }
+  .tags { display:flex; gap:10px; margin-bottom:16px; }
+  .tag { font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:7px 14px; }
+  .tag.rojizo { background:var(--rojizo); color:#fff; }
+  .tag.celeste { background:var(--celeste); color:#04202e; }
+  .hero h1 { font-size:2.1rem; font-weight:800; line-height:1.1; margin:0 0 12px; letter-spacing:-.02em; max-width:660px; }
+  .hero p { font-size:.94rem; max-width:510px; line-height:1.5; opacity:.92; margin:0 0 20px; }
+  .hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
+  .btn-primary { background:#fff; color:var(--ink); font-weight:800; padding:13px 24px; text-decoration:none; font-size:.9rem; }
+  .btn-outline { border:1.5px solid #fff; color:#fff; font-weight:700; padding:12px 22px; text-decoration:none; font-size:.9rem; }
+
+  .stats { border-top:1px solid #dcdcda; border-bottom:1px solid #dcdcda; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); }
+  .stat-card { padding:28px 24px; border-left:1px solid #dcdcda; text-align:center; }
+  .stat-card:first-child { border-left:none; }
+  .stat-card .num { font-weight:800; font-size:2rem; }
+  .stat-card:nth-child(odd) .num { color:var(--rojizo-dark); }
+  .stat-card:nth-child(even) .num { color:var(--celeste-dark); }
+  .stat-card .lab { font-size:.8rem; color:#666; margin-top:6px; text-transform:uppercase; letter-spacing:.06em; }
+
+  .section { padding:68px 0; }
+  .section-head { max-width:620px; margin:0 auto 40px; text-align:center; }
+  .badge { display:inline-flex; gap:6px; align-items:center; font-size:.76rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); padding:7px 4px; margin-bottom:16px; }
+  .badge::before { content:""; width:8px; height:8px; background:var(--rojizo); }
+  .badge::after { content:""; width:8px; height:8px; background:var(--celeste); }
+  .section-head h2 { font-size:2rem; margin:0 0 10px; font-weight:800; letter-spacing:-.01em; }
+  .section-head p { color:#666; line-height:1.6; }
+
+  .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .pillar { background:#fff; padding:30px 24px; border-top:4px solid var(--rojizo); }
+  .pillar:nth-child(2) { border-top-color:var(--ink); }
+  .pillar:nth-child(3) { border-top-color:var(--celeste); }
+  .pillar .n { font-weight:800; font-size:.85rem; color:#999; margin-bottom:14px; }
+  .pillar h3 { margin:0 0 10px; font-size:1.1rem; }
+  .pillar p { margin:0; color:#666; font-size:.92rem; line-height:1.55; }
+
+  footer { padding:24px 0; display:flex; justify-content:space-between; font-size:.8rem; color:#666; }
+</style>
+</head>
+<body>
+  <div class="label">CONCEPTO C — DUAL-TONO (ORIGEN COMPARTIDO)</div>
+  <div class="dualbar"><span></span><span></span></div>
+
+  <header class="nav">
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span>KSC Coaching</div>
+      <ul class="navlinks">
+        <li><a href="#" class="active">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Malla</a></li>
+        <li><a href="#">Agenda</a></li>
+        <li><a href="#">Aula Virtual</a></li>
+      </ul>
+      <a class="btn-cta" href="#">Matricúlate</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="dualbar-top"><span></span><span></span></span>
+    <img src="/home/user/KSC/assets/img/evento-mentoria.jpg" alt="" />
+    <div class="wrap">
+      <div class="tags">
+        <span class="tag rojizo">Coaching</span>
+        <span class="tag celeste">Certificación ICF</span>
+      </div>
+      <h1>Fórmate como Coach Profesional con sello KSC</h1>
+      <p>Programa de 120 horas que integra el Modelo GROW, Coaching Integral Sistémico, PNL y Coaching Ejecutivo.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#">Matricúlate ahora</a>
+        <a class="btn-outline" href="#">Ver la malla completa</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="wrap">
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num">120 hrs</div><div class="lab">Cronológicas</div></div>
+        <div class="stat-card"><div class="num">24</div><div class="lab">Semanas</div></div>
+        <div class="stat-card"><div class="num">4</div><div class="lab">Módulos</div></div>
+        <div class="stat-card"><div class="num">60/40</div><div class="lab">Teoría / Práctica</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="badge">Por qué KSC</span>
+        <h2>Un programa que combina rigor y práctica real</h2>
+        <p>Cuatro módulos integrados con acompañamiento a un cliente real desde la semana 12.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><div class="n">01</div><h3>Marcos de alta rigurosidad</h3><p>Modelo GROW, Coaching Integral Sistémico, PNL y Coaching Ejecutivo, alineados a la ICF.</p></div>
+        <div class="pillar"><div class="n">02</div><h3>Práctica en tríadas</h3><p>40 horas de práctica en aula como coach, coachee y observador.</p></div>
+        <div class="pillar"><div class="n">03</div><h3>Acompañamiento real</h3><p>Sesiones supervisadas con un cliente real desde el módulo III.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+      <span>KSC Coaching</span>
+      <span>Un mismo origen, dos caminos</span>
+    </div>
+  </footer>
+</body>
+</html>

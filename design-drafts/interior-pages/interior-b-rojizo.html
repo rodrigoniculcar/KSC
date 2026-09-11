@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Interior — Concepto B: Rojizo cálido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #201513;
+    --accent: #e35141;
+    --accent-dark: #a82719;
+    --accent-soft: #fbe9e6;
+    --paper: #fdf9f8;
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; font-family:'Archivo', system-ui, sans-serif; color:var(--ink); background:var(--paper); }
+  img { display:block; max-width:100%; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 32px; }
+  .label { text-align:center; background:var(--ink); color:#fff; padding:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:.82rem; }
+
+  .nav { display:flex; align-items:center; padding:18px 0; }
+  .nav .wrap { display:flex; align-items:center; justify-content:space-between; width:100%; }
+  .brand { font-weight:800; font-size:1.15rem; letter-spacing:-.01em; }
+  .brand span { color:var(--accent-dark); }
+  .navlinks { display:flex; gap:26px; list-style:none; margin:0; padding:0; font-weight:600; font-size:.9rem; }
+  .navlinks a { color:var(--ink); text-decoration:none; opacity:.7; }
+  .navlinks a.active { opacity:1; color:var(--accent-dark); }
+  .btn-cta { background:var(--accent); color:#fff; font-weight:700; font-size:.88rem; padding:12px 24px; text-decoration:none; border-radius:999px; }
+  .btn-cta:hover { background:var(--accent-dark); }
+
+  .hero { position:relative; min-height:380px; display:flex; align-items:flex-end; overflow:hidden; border-radius:0 0 36px 36px; }
+  .hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 32%; z-index:0; }
+  .hero::before { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg, rgba(32,14,10,.92) 0%, rgba(32,14,10,.64) 50%, rgba(32,14,10,.18) 80%, rgba(32,14,10,0) 100%); }
+  .hero .wrap { position:relative; z-index:2; padding-top:34px; padding-bottom:32px; color:#fff; }
+  .eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:.74rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#fff; background:var(--accent); border-radius:999px; padding:7px 16px; margin-bottom:16px; }
+  .hero h1 { font-size:2.1rem; font-weight:800; line-height:1.1; margin:0 0 12px; letter-spacing:-.02em; max-width:640px; }
+  .hero p { font-size:.94rem; max-width:500px; line-height:1.5; opacity:.94; margin:0 0 20px; }
+  .hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
+  .btn-primary { background:#fff; color:var(--accent-dark); font-weight:800; padding:13px 24px; text-decoration:none; font-size:.9rem; border-radius:999px; }
+  .btn-outline { border:1.5px solid rgba(255,255,255,.7); color:#fff; font-weight:700; padding:12px 22px; text-decoration:none; font-size:.9rem; border-radius:999px; }
+
+  .stats { padding:36px 0; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .stat-card { background:#fff; border-radius:20px; padding:26px 20px; text-align:center; box-shadow:0 18px 40px -22px rgba(32,14,10,.35); }
+  .stat-card .num { font-weight:800; font-size:1.9rem; color:var(--accent-dark); }
+  .stat-card .lab { font-size:.8rem; color:#7a6a66; margin-top:6px; }
+
+  .section { padding:66px 0; }
+  .section-head { max-width:620px; margin:0 auto 40px; text-align:center; }
+  .badge { display:inline-block; font-size:.76rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-dark); background:var(--accent-soft); padding:7px 18px; border-radius:999px; margin-bottom:16px; }
+  .section-head h2 { font-size:2rem; margin:0 0 10px; font-weight:800; letter-spacing:-.01em; }
+  .section-head p { color:#7a6a66; line-height:1.6; }
+
+  .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .pillar { background:#fff; border-radius:24px; padding:32px 26px; box-shadow:0 18px 40px -24px rgba(32,14,10,.3); }
+  .pillar .n { width:38px; height:38px; border-radius:12px; background:var(--accent-soft); color:var(--accent-dark); font-weight:800; font-size:.9rem; display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+  .pillar h3 { margin:0 0 10px; font-size:1.12rem; }
+  .pillar p { margin:0; color:#7a6a66; font-size:.92rem; line-height:1.55; }
+
+  footer { padding:28px 0; display:flex; justify-content:space-between; font-size:.8rem; color:#7a6a66; }
+</style>
+</head>
+<body>
+  <div class="label">CONCEPTO B — ROJIZO C&Aacute;LIDO</div>
+
+  <header class="nav">
+    <div class="wrap">
+      <div class="brand">KSC <span>Coaching</span></div>
+      <ul class="navlinks">
+        <li><a href="#" class="active">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Malla</a></li>
+        <li><a href="#">Agenda</a></li>
+        <li><a href="#">Aula Virtual</a></li>
+      </ul>
+      <a class="btn-cta" href="#">Matricúlate</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="/home/user/KSC/assets/img/portal-coaching-hero.jpg" alt="" />
+    <div class="wrap">
+      <span class="eyebrow">Escuela de Coaching · KSC</span>
+      <h1>Fórmate como Coach Profesional con certificación ICF</h1>
+      <p>Programa de 120 horas que integra el Modelo GROW, Coaching Integral Sistémico, PNL y Coaching Ejecutivo.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#">Matricúlate ahora</a>
+        <a class="btn-outline" href="#">Ver la malla completa</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="wrap">
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num">120 hrs</div><div class="lab">Cronológicas</div></div>
+        <div class="stat-card"><div class="num">24</div><div class="lab">Semanas</div></div>
+        <div class="stat-card"><div class="num">4</div><div class="lab">Módulos</div></div>
+        <div class="stat-card"><div class="num">60/40</div><div class="lab">Teoría / Práctica</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="badge">Por qué KSC</span>
+        <h2>Un programa que combina rigor y práctica real</h2>
+        <p>Cuatro módulos integrados con acompañamiento a un cliente real desde la semana 12.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><div class="n">01</div><h3>Marcos de alta rigurosidad</h3><p>Modelo GROW, Coaching Integral Sistémico, PNL y Coaching Ejecutivo, alineados a la ICF.</p></div>
+        <div class="pillar"><div class="n">02</div><h3>Práctica en tríadas</h3><p>40 horas de práctica en aula como coach, coachee y observador.</p></div>
+        <div class="pillar"><div class="n">03</div><h3>Acompañamiento real</h3><p>Sesiones supervisadas con un cliente real desde el módulo III.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+      <span>KSC Coaching</span>
+      <span>Un mismo origen, dos caminos</span>
+    </div>
+  </footer>
+</body>
+</html>
