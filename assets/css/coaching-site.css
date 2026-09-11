@@ -7,6 +7,18 @@
   --font-body: 'Archivo', 'Segoe UI', system-ui, sans-serif;
 }
 
+body::before {
+  content: '';
+  display: block;
+  height: 28px;
+  background: var(--ink-900);
+}
+
+.site-nav .brand {
+  font-size: 1.02rem;
+  white-space: nowrap;
+}
+
 /* ---------- Nav ---------- */
 .site-nav {
   position: sticky;
