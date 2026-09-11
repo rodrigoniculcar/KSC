@@ -473,6 +473,12 @@
   margin-top: 2px;
 }
 
+.mv-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 /* ---------- Person cards ---------- */
 .people-grid {
   display: grid;
