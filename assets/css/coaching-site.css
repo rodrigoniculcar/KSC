@@ -1,5 +1,12 @@
 /* KSC Coaching — shared site chrome & components */
 
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-display: 'Archivo', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Archivo', 'Segoe UI', system-ui, sans-serif;
+}
+
 /* ---------- Nav ---------- */
 .site-nav {
   position: sticky;
@@ -1266,4 +1273,163 @@
 
 .demo-banner strong {
   font-weight: 700;
+}
+
+/* =========================================================
+   Dual-tono facelift — same flat, Archivo-driven language as
+   the "Concepto C" mockup, applied site-wide via the shared
+   chrome/components so page markup and copy stay untouched.
+   ========================================================= */
+
+/* Thin celeste/rojizo bar echoing the portal's two paths */
+.site-nav {
+  position: sticky;
+  top: 0;
+  background: rgba(251, 247, 240, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.site-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  display: flex;
+  background: linear-gradient(90deg, var(--coaching-600) 50%, var(--consultores-600) 50%);
+}
+
+.site-footer {
+  position: relative;
+  border-top: none;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--coaching-600), var(--consultores-600));
+}
+
+/* Dual accent bar across every full-bleed photo hero */
+.photo-band {
+  position: relative;
+}
+
+.photo-band::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 1;
+  background: linear-gradient(90deg, var(--coaching-600) 50%, var(--consultores-600) 50%);
+}
+
+/* Flat, sharp-edged surfaces instead of soft rounded shadows */
+.card,
+.pillar,
+.module-card,
+.stat-card,
+.event-card,
+.person-card,
+.accordion-item,
+.form-card,
+.notify,
+.roadmap,
+.modal-box,
+.help-panel,
+.demo-banner,
+.side-photo,
+.hero-photo-panel,
+.event-photo,
+.person-photo {
+  border-radius: 0;
+}
+
+.card,
+.pillar,
+.module-card,
+.stat-card,
+.event-card,
+.person-card,
+.accordion-item,
+.form-card,
+.notify,
+.roadmap {
+  box-shadow: none;
+}
+
+/* Alternating celeste/ink/rojizo top rule on pillar & module cards */
+.pillars .pillar {
+  border-top: 4px solid var(--coaching-600);
+}
+
+.pillars .pillar:nth-child(3n+2) {
+  border-top-color: var(--ink-900);
+}
+
+.pillars .pillar:nth-child(3n+3) {
+  border-top-color: var(--consultores-600);
+}
+
+.module-grid .module-card {
+  border-top: 4px solid var(--coaching-600);
+}
+
+.module-grid .module-card:nth-child(even) {
+  border-top-color: var(--consultores-600);
+}
+
+.stat-card:nth-child(odd) .num {
+  color: var(--coaching-700);
+}
+
+.stat-card:nth-child(even) .num {
+  color: var(--consultores-700);
+}
+
+/* Badges: flat label flanked by the two brand colors */
+.badge {
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge::before,
+.badge::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+}
+
+.badge::before {
+  background: var(--coaching-600);
+}
+
+.badge::after {
+  background: var(--consultores-600);
+}
+
+/* Flat buttons, bolder Archivo weight */
+.btn {
+  border-radius: 2px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.page-hero h1,
+.section-head h2,
+.coaching-hero h1,
+.notify h2 {
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
