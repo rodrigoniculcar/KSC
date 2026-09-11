@@ -152,6 +152,7 @@ body {
   padding: 26px 22px;
   box-shadow: var(--shadow-soft);
   border: 1px solid rgba(168, 140, 106, 0.12);
+  min-height: 224px;
 }
 
 .pillar .dot {
