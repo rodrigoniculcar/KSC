@@ -1200,6 +1200,11 @@
   padding: 0;
 }
 
+/* Keep white cards/forms readable when floating on a dark hero photo */
+.photo-band.photo-band-dark .card {
+  color: var(--ink-900);
+}
+
 /* Direct-on-photo hero (no glass panel), matching Concepto C */
 .coaching-hero-band .wrap {
   padding: 40px 0 44px;
