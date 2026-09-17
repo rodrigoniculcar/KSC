@@ -71,14 +71,16 @@ body::before {
 
 .nav-toggle {
   display: none;
-  background: none;
-  border: 1px solid rgba(168, 140, 106, 0.3);
+  background: #ffffff;
+  border: 1px solid rgba(168, 140, 106, 0.4);
   border-radius: 10px;
   width: 40px;
   height: 40px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  flex-shrink: 0;
 }
 
 .nav-toggle span,
@@ -104,8 +106,17 @@ body::before {
 }
 
 @media (max-width: 860px) {
+  .site-nav .wrap {
+    flex-wrap: wrap;
+  }
+
   .nav-toggle {
     display: flex;
+    order: 3;
+  }
+
+  .nav-cta {
+    order: 2;
   }
 
   .nav-links {
