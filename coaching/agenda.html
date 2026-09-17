@@ -80,7 +80,7 @@
 
           <div class="demo-banner" style="margin-bottom:20px;">
             <span>⚠️</span>
-            <span><strong>Demostración:</strong> la agenda aún no está conectada a un calendario real. Al confirmar, verás cómo se vería la confirmación de tu reunión.</span>
+            <span><strong>Atención:</strong> solo lunes y miércoles, excepto feriados en Chile.</span>
           </div>
 
           <form id="agendaForm" class="form-body">
@@ -112,23 +112,32 @@
                   <option>Otro</option>
                 </select>
               </div>
-              <div class="field">
-                <label for="a-fecha">Fecha preferida *</label>
-                <input type="date" id="a-fecha" name="fecha" required />
-                <span style="font-size:0.76rem; color:var(--ink-500); margin-top:4px;">Solo agendamos los días lunes y miércoles.</span>
-              </div>
-              <div class="field">
-                <label>Horario preferido *</label>
-                <input type="hidden" id="a-horario" name="horario" />
-              </div>
             </div>
 
             <div class="field full" style="margin-top:6px;">
-              <label>Elige un bloque horario</label>
+              <label>Fecha preferida * <span class="field-hint">Solo lunes y miércoles habilitados (excepto feriados en Chile)</span></label>
+              <div class="mini-calendar" id="miniCalendar">
+                <div class="mini-calendar-head">
+                  <button type="button" class="cal-nav" id="calPrev" aria-label="Mes anterior">‹</button>
+                  <span id="calMonthLabel"></span>
+                  <button type="button" class="cal-nav" id="calNext" aria-label="Mes siguiente">›</button>
+                </div>
+                <div class="mini-calendar-weekdays">
+                  <span>lu</span><span>ma</span><span>mi</span><span>ju</span><span>vi</span><span>sá</span><span>do</span>
+                </div>
+                <div class="mini-calendar-grid" id="calGrid"></div>
+              </div>
+              <input type="hidden" id="a-fecha" name="fecha" />
+              <p class="cal-selected" id="calSelectedLabel">Aún no has elegido una fecha.</p>
+            </div>
+
+            <div class="field full" style="margin-top:6px;">
+              <label>Elige un bloque horario *</label>
               <div class="slot-grid" id="slotGrid">
                 <button type="button" class="slot" data-value="AM">AM<span class="slot-sub">Mañana</span></button>
                 <button type="button" class="slot" data-value="PM">PM<span class="slot-sub">Tarde</span></button>
               </div>
+              <input type="hidden" id="a-horario" name="horario" />
             </div>
 
             <div class="form-actions">
@@ -191,27 +200,127 @@
   <script>
     initSlotPicker('#slotGrid', '#a-horario');
 
-    const fechaInput = document.getElementById('a-fecha');
-    fechaInput.addEventListener('change', () => {
-      if (!fechaInput.value) return;
-      const dia = new Date(fechaInput.value + 'T00:00:00').getDay();
-      if (dia !== 1 && dia !== 3) {
-        alert('Solo agendamos reuniones los días lunes y miércoles. Por favor elige una de esas fechas.');
-        fechaInput.value = '';
+    // --- Mini-calendario: solo lunes y miércoles, excepto feriados en Chile ---
+    const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+    // Feriados chilenos de fecha fija (revisar/actualizar cada año). Los
+    // móviles (Viernes y Sábado Santo) se calculan con la Pascua.
+    const FERIADOS_FIJOS = ['01-01', '05-01', '05-21', '07-16', '08-15', '09-18', '09-19', '10-12', '10-31', '11-01', '12-08', '12-25'];
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function calcularPascua(year) {
+      const a = year % 19;
+      const b = Math.floor(year / 100);
+      const c = year % 100;
+      const d = Math.floor(b / 4);
+      const e = b % 4;
+      const f = Math.floor((b + 8) / 25);
+      const g = Math.floor((b - f + 1) / 3);
+      const h = (19 * a + b - d - g + 15) % 30;
+      const i = Math.floor(c / 4);
+      const k = c % 4;
+      const l = (32 + 2 * e + 2 * i - h - k) % 7;
+      const m = Math.floor((a + 11 * h + 22 * l) / 451);
+      const mes = Math.floor((h + l - 7 * m + 114) / 31);
+      const dia = ((h + l - 7 * m + 114) % 31) + 1;
+      return new Date(year, mes - 1, dia);
+    }
+
+    function esFeriado(date) {
+      const mmdd = pad(date.getMonth() + 1) + '-' + pad(date.getDate());
+      if (FERIADOS_FIJOS.includes(mmdd)) return true;
+      const pascua = calcularPascua(date.getFullYear());
+      const viernesSanto = new Date(pascua); viernesSanto.setDate(pascua.getDate() - 2);
+      const sabadoSanto = new Date(pascua); sabadoSanto.setDate(pascua.getDate() - 1);
+      const mismoDia = (a, b) => a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+      return mismoDia(date, viernesSanto) || mismoDia(date, sabadoSanto);
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    let calViewYear = today.getFullYear();
+    let calViewMonth = today.getMonth();
+
+    const calGrid = document.getElementById('calGrid');
+    const calMonthLabel = document.getElementById('calMonthLabel');
+    const calSelectedLabel = document.getElementById('calSelectedLabel');
+    const fechaHidden = document.getElementById('a-fecha');
+    const calPrev = document.getElementById('calPrev');
+    const calNext = document.getElementById('calNext');
+
+    function renderCalendar() {
+      calGrid.innerHTML = '';
+      calMonthLabel.textContent = MESES[calViewMonth] + ' ' + calViewYear;
+
+      const firstDay = new Date(calViewYear, calViewMonth, 1);
+      const startOffset = (firstDay.getDay() + 6) % 7; // lunes = 0
+      const daysInMonth = new Date(calViewYear, calViewMonth + 1, 0).getDate();
+
+      for (let i = 0; i < startOffset; i++) {
+        const empty = document.createElement('span');
+        empty.className = 'cal-day empty';
+        calGrid.appendChild(empty);
       }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(calViewYear, calViewMonth, d);
+        const dow = date.getDay();
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'cal-day';
+        btn.textContent = d;
+
+        const isPast = date < today;
+        const isValidDow = dow === 1 || dow === 3;
+        const isHoliday = esFeriado(date);
+
+        if (!isValidDow || isPast || isHoliday) {
+          btn.classList.add('disabled');
+          btn.disabled = true;
+          if (isValidDow && isHoliday && !isPast) {
+            btn.classList.add('holiday');
+            btn.title = 'Feriado';
+          }
+        } else {
+          btn.classList.add('available');
+          const iso = calViewYear + '-' + pad(calViewMonth + 1) + '-' + pad(d);
+          if (fechaHidden.value === iso) btn.classList.add('selected');
+          btn.addEventListener('click', () => {
+            fechaHidden.value = iso;
+            calSelectedLabel.textContent = 'Elegiste: ' + date.toLocaleDateString('es-CL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            renderCalendar();
+          });
+        }
+        calGrid.appendChild(btn);
+      }
+
+      calPrev.disabled = (calViewYear === today.getFullYear() && calViewMonth === today.getMonth());
+    }
+
+    calPrev.addEventListener('click', () => {
+      calViewMonth--;
+      if (calViewMonth < 0) { calViewMonth = 11; calViewYear--; }
+      renderCalendar();
     });
+    calNext.addEventListener('click', () => {
+      calViewMonth++;
+      if (calViewMonth > 11) { calViewMonth = 0; calViewYear++; }
+      renderCalendar();
+    });
+
+    renderCalendar();
 
     const horarioLabel = { AM: 'en la mañana (AM)', PM: 'en la tarde (PM)' };
 
     simulateSubmit('agendaForm', 'agendaSuccess', {
       beforeSubmit: (form) => {
-        if (!form.horario.value) {
-          alert('Por favor elige un bloque horario.');
+        if (!form.fecha.value) {
+          alert('Por favor elige una fecha en el calendario.');
           return false;
         }
-        const dia = form.fecha.value ? new Date(form.fecha.value + 'T00:00:00').getDay() : null;
-        if (dia !== 1 && dia !== 3) {
-          alert('Solo agendamos reuniones los días lunes y miércoles.');
+        if (!form.horario.value) {
+          alert('Por favor elige un bloque horario.');
           return false;
         }
         return true;

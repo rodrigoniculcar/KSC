@@ -1206,6 +1206,124 @@ body::before {
   opacity: 1;
 }
 
+/* ---------- Mini-calendario (agenda) ---------- */
+.field-hint {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--ink-500);
+  margin-top: 2px;
+}
+
+.mini-calendar {
+  border: 1px solid var(--ink-300);
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 8px;
+  background: #fff;
+}
+
+.mini-calendar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink-900);
+  text-transform: capitalize;
+}
+
+.cal-nav {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-300);
+  background: #fff;
+  color: var(--coaching-700);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cal-nav:hover:not(:disabled) {
+  border-color: var(--coaching-500);
+}
+
+.cal-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.mini-calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-500);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.mini-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-day {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-300);
+  cursor: default;
+}
+
+.cal-day.empty {
+  visibility: hidden;
+}
+
+.cal-day.disabled {
+  color: var(--ink-300);
+  cursor: not-allowed;
+}
+
+.cal-day.holiday {
+  color: var(--coaching-300, #f3b0a6);
+  text-decoration: line-through;
+}
+
+.cal-day.available {
+  color: var(--coaching-700);
+  background: var(--coaching-50);
+  cursor: pointer;
+}
+
+.cal-day.available:hover {
+  background: #f4dad7;
+}
+
+.cal-day.selected,
+.cal-day.selected:hover {
+  background: var(--coaching-600);
+  color: #fff;
+}
+
+.cal-selected {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--coaching-700);
+  margin-top: 8px;
+}
+
 /* ---------- Lightbox ---------- */
 .lightbox-overlay {
   position: fixed;
