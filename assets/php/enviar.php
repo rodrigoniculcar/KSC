@@ -100,7 +100,10 @@ if (!function_exists('mail')) {
     exit;
 }
 
-$enviado = @mail($destinatario, $asunto, $cuerpo, $headers);
+// El quinto parámetro fija el remitente del sobre (Return-Path) para que
+// coincida con un buzón real del dominio; ayuda a que el mensaje no quede
+// marcado como spam en servidores que validan SPF.
+$enviado = @mail($destinatario, $asunto, $cuerpo, $headers, '-f' . $destinatario);
 
 if ($enviado) {
     echo json_encode(['ok' => true]);
