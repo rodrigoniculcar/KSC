@@ -71,7 +71,7 @@ foreach ($_POST as $campo => $valor) {
     if ($valor === '') {
         continue;
     }
-    $etiqueta = $etiquetas[$campo] ?? ucfirst(str_replace('_', ' ', $campo));
+    $etiqueta = isset($etiquetas[$campo]) ? $etiquetas[$campo] : ucfirst(str_replace('_', ' ', $campo));
     $lineas[] = $etiqueta . ': ' . $valor;
 }
 
