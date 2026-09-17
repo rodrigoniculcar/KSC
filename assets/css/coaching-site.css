@@ -564,8 +564,34 @@ body::before {
 .person-body h3 {
   font-family: var(--font-display);
   font-size: 1.25rem;
-  margin: 4px 0 12px;
+  margin: 4px 0 10px;
   color: var(--ink-900);
+}
+
+.person-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.person-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink-700);
+  text-decoration: none;
+}
+
+.person-contact a:hover {
+  color: var(--coaching-700);
+}
+
+.person-contact svg {
+  flex-shrink: 0;
+  color: var(--coaching-600);
 }
 
 .person-bio {
