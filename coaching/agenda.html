@@ -115,6 +115,7 @@
               <div class="field">
                 <label for="a-fecha">Fecha preferida *</label>
                 <input type="date" id="a-fecha" name="fecha" required />
+                <span style="font-size:0.76rem; color:var(--ink-500); margin-top:4px;">Solo agendamos los días lunes y miércoles.</span>
               </div>
               <div class="field">
                 <label>Horario preferido *</label>
@@ -125,12 +126,8 @@
             <div class="field full" style="margin-top:6px;">
               <label>Elige un bloque horario</label>
               <div class="slot-grid" id="slotGrid">
-                <button type="button" class="slot" data-value="10:00">10:00</button>
-                <button type="button" class="slot" data-value="12:00">12:00</button>
-                <button type="button" class="slot" data-value="15:00">15:00</button>
-                <button type="button" class="slot" data-value="17:00">17:00</button>
-                <button type="button" class="slot" data-value="19:00">19:00</button>
-                <button type="button" class="slot" data-value="20:30">20:30</button>
+                <button type="button" class="slot" data-value="AM">AM<span class="slot-sub">Mañana</span></button>
+                <button type="button" class="slot" data-value="PM">PM<span class="slot-sub">Tarde</span></button>
               </div>
             </div>
 
@@ -194,10 +191,27 @@
   <script>
     initSlotPicker('#slotGrid', '#a-horario');
 
+    const fechaInput = document.getElementById('a-fecha');
+    fechaInput.addEventListener('change', () => {
+      if (!fechaInput.value) return;
+      const dia = new Date(fechaInput.value + 'T00:00:00').getDay();
+      if (dia !== 1 && dia !== 3) {
+        alert('Solo agendamos reuniones los días lunes y miércoles. Por favor elige una de esas fechas.');
+        fechaInput.value = '';
+      }
+    });
+
+    const horarioLabel = { AM: 'en la mañana (AM)', PM: 'en la tarde (PM)' };
+
     simulateSubmit('agendaForm', 'agendaSuccess', {
       beforeSubmit: (form) => {
         if (!form.horario.value) {
           alert('Por favor elige un bloque horario.');
+          return false;
+        }
+        const dia = form.fecha.value ? new Date(form.fecha.value + 'T00:00:00').getDay() : null;
+        if (dia !== 1 && dia !== 3) {
+          alert('Solo agendamos reuniones los días lunes y miércoles.');
           return false;
         }
         return true;
@@ -207,7 +221,7 @@
         const horario = form.horario.value;
         const fechaFmt = fecha ? new Date(fecha + 'T00:00:00').toLocaleDateString('es-CL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : '';
         document.getElementById('agendaSummary').textContent =
-          `Quedó agendada para el ${fechaFmt} a las ${horario} hrs. Te escribiremos a ${form.email.value} para confirmar.`;
+          `Quedó agendada para el ${fechaFmt}, ${horarioLabel[horario] || horario}. Te escribiremos a ${form.email.value} para confirmar.`;
       }
     });
   </script>

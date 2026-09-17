@@ -874,26 +874,32 @@ body::before {
 /* ---------- Time slot picker (agenda) ---------- */
 .slot-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-}
-
-@media (max-width: 640px) {
-  .slot-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .slot {
   border: 1px solid var(--ink-300);
   border-radius: 10px;
-  padding: 10px 8px;
+  padding: 14px 8px;
   text-align: center;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--ink-700);
   background: #fff;
   cursor: pointer;
+}
+
+.slot .slot-sub {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--ink-500);
+  margin-top: 2px;
+}
+
+.slot.selected .slot-sub {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .slot:hover {
