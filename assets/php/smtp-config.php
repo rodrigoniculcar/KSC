@@ -14,8 +14,8 @@
 
 return [
     'host' => 'mail.ksconsultores.cl',
-    'port' => 587,
-    'secure' => 'tls', // 'tls' para el puerto 587, 'ssl' para el puerto 465
-    'username' => 'kscontacto@ksconsultores.cl',
+    'port' => 465,
+    'secure' => 'ssl', // 'tls' para el puerto 587, 'ssl' para el puerto 465
+    'username' => 'noreply@ksconsultores.cl',
     'password' => 'TU_CONTRASEÑA_AQUI',
 ];
