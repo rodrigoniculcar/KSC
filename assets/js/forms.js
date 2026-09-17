@@ -1,4 +1,7 @@
-// KSC Coaching — simulated form submission (no backend connected yet)
+// Kairos School of Coaching — envía el formulario a assets/php/enviar.php,
+// que reenvía los datos por correo a kscontacto@ksconsultores.cl.
+// Requiere hosting con PHP; en un preview sin PHP el envío fallará y se
+// mostrará un aviso pidiendo escribir directamente al correo.
 
 function simulateSubmit(formId, panelId, opts) {
   const form = document.getElementById(formId);
@@ -14,14 +17,39 @@ function simulateSubmit(formId, panelId, opts) {
       if (ok === false) return;
     }
 
-    form.classList.add('hide');
-    successPanel.classList.add('show');
-
-    if (opts && typeof opts.onSuccess === 'function') {
-      opts.onSuccess(form, successPanel);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalLabel = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
     }
 
-    successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    fetch('../assets/php/enviar.php', {
+      method: 'POST',
+      body: new FormData(form),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data || !data.ok) throw new Error((data && data.error) || 'send_failed');
+
+        form.classList.add('hide');
+        successPanel.classList.add('show');
+
+        if (opts && typeof opts.onSuccess === 'function') {
+          opts.onSuccess(form, successPanel);
+        }
+
+        successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(() => {
+        alert('No pudimos enviar tu solicitud. Por favor escríbenos directamente a kscontacto@ksconsultores.cl.');
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        }
+      });
   });
 }
 
