@@ -19,6 +19,12 @@ body::before {
   white-space: nowrap;
 }
 
+.site-nav .brand img {
+  width: auto;
+  height: 48px;
+  object-fit: contain;
+}
+
 /* ---------- Nav ---------- */
 .site-nav {
   position: sticky;
