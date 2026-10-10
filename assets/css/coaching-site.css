@@ -1838,3 +1838,66 @@ body::before {
   font-weight: 800;
   letter-spacing: -0.01em;
 }
+
+/* Equipo académico (Nosotros) */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.faculty-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid rgba(168, 140, 106, 0.14);
+  border-top: 4px solid var(--coaching-600);
+  padding: 22px 24px;
+}
+
+.faculty-photo {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #c9a24c;
+}
+
+.faculty-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  margin: 2px 0 4px;
+  color: var(--ink-900);
+}
+
+.faculty-place {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--coaching-600);
+}
+
+.faculty-card p {
+  margin: 10px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-500);
+}
+
+@media (max-width: 760px) {
+  .faculty-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .faculty-card {
+    flex-direction: column;
+  }
+}
