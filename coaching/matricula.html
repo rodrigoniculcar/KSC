@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/vendor/intl-tel-input/css/intlTelInput.min.css" />
   <link rel="stylesheet" href="../assets/css/base.css" />
   <link rel="stylesheet" href="../assets/css/coaching.css" />
   <link rel="stylesheet" href="../assets/css/coaching-site.css" />
@@ -39,7 +40,7 @@
       <div class="hero-photo-panel" style="max-width:640px; margin:0; text-align:left;">
         <span class="badge">Matrícula</span>
         <h1 style="font-family:var(--font-display); font-size:clamp(1.9rem, 4.4vw, 2.7rem); margin:12px 0;">Matricúlate en Kairos School of Coaching</h1>
-        <p style="color:var(--ink-500); font-size:1.02rem; line-height:1.6; margin:0;">Completa tus datos y un asesor del equipo Kairos se pondrá en contacto contigo para confirmar tu cupo y coordinar el pago. Cupos limitados por generación.</p>
+        <p style="color:var(--ink-500); font-size:1.02rem; line-height:1.6; margin:0;">Completa tus datos y paga tu matrícula en línea de forma segura con Getnet de Santander. Cupos limitados por generación.</p>
       </div>
     </div>
   </section>
@@ -49,7 +50,7 @@
 
       <div class="demo-banner" style="margin-bottom:22px;">
         <span>⚠️</span>
-        <span><strong>Sitio en etapa de demostración:</strong> este formulario aún no está conectado a un sistema de pago ni matrícula real. Al enviarlo, simularemos el flujo completo, incluyendo el acceso de ejemplo al Aula Virtual.</span>
+        <span><strong>Pago en configuración:</strong> el pago en línea con Getnet se está habilitando. Mientras tanto, al enviar el formulario tu solicitud llega a nuestro equipo y te contactamos para coordinar el pago.</span>
       </div>
 
       <div class="form-card">
@@ -71,7 +72,7 @@
             </div>
             <div class="field">
               <label for="telefono">Teléfono *</label>
-              <input type="tel" id="telefono" name="telefono" placeholder="+56 9 ..." required />
+              <input type="tel" id="telefono" name="telefono_visible" autocomplete="tel" required />
             </div>
             <div class="field">
               <label for="ciudad">Ciudad / comuna</label>
@@ -104,9 +105,9 @@
           </div>
 
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary btn-lg">Enviar solicitud de matrícula</button>
+            <button type="submit" class="btn btn-primary btn-lg">Matricúlate y paga</button>
           </div>
-          <p class="form-sim-note">* Campos obligatorios. Este es un formulario de demostración: no se realiza ningún cobro ni se comparte tu información con terceros.</p>
+          <p class="form-sim-note">* Campos obligatorios. Al continuar serás redirigido/a a Getnet, la plataforma de pago segura de Santander. Tus datos no se comparten con terceros.</p>
         </form>
 
         <div id="matriculaSuccess" class="success-panel">
@@ -153,7 +154,7 @@
       </div>
       <div class="help-faq-item">
         <button class="help-faq-q">¿Cómo se realiza el pago?</button>
-        <div class="help-faq-a">Nuestro equipo te contactará para coordinar el pago al contado o en cuotas, una vez confirmada tu matrícula.</div>
+        <div class="help-faq-a">En línea, al presionar «Matricúlate y paga»: serás redirigido/a a Getnet para pagar con tarjeta de crédito o débito. Si prefieres otra modalidad, escríbenos.</div>
       </div>
     </div>
     <div class="help-panel-actions">
@@ -162,10 +163,13 @@
     </div>
   </div>
 
+  <script src="../assets/vendor/intl-tel-input/js/intlTelInputWithUtils.min.js"></script>
+  <script src="../assets/vendor/intl-tel-input/js/i18n-es.js"></script>
   <script src="../assets/js/site.js"></script>
   <script src="../assets/js/forms.js"></script>
   <script>
-    simulateSubmit('matriculaForm', 'matriculaSuccess');
+    initPhoneField('telefono');
+    simulateSubmit('matriculaForm', 'matriculaSuccess', { pago: true });
   </script>
 </body>
 </html>

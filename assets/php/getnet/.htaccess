@@ -1,0 +1,18 @@
+# Solo crear-pago.php y notificacion.php se pueden abrir desde internet.
+# getnet.php, la configuración con las credenciales, el log y la carpeta
+# data/ (registro de matrículas) quedan bloqueados.
+
+<FilesMatch "^(getnet\.php|getnet-config.*\.php|getnet-error\.log)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^data(/|$) - [F,L]
+</IfModule>

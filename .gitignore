@@ -1,1 +1,4 @@
 assets/php/mail-error.log
+assets/php/getnet/getnet-config.php
+assets/php/getnet/getnet-error.log
+assets/php/getnet/data/*.json

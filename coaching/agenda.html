@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/vendor/intl-tel-input/css/intlTelInput.min.css" />
   <link rel="stylesheet" href="../assets/css/base.css" />
   <link rel="stylesheet" href="../assets/css/coaching.css" />
   <link rel="stylesheet" href="../assets/css/coaching-site.css" />
@@ -100,7 +101,7 @@
               </div>
               <div class="field">
                 <label for="a-telefono">Teléfono *</label>
-                <input type="tel" id="a-telefono" name="telefono" required />
+                <input type="tel" id="a-telefono" name="telefono_visible" autocomplete="tel" required />
               </div>
               <div class="field full">
                 <label for="a-motivo">Motivo de la reunión</label>
@@ -194,6 +195,8 @@
     </div>
   </div>
 
+  <script src="../assets/vendor/intl-tel-input/js/intlTelInputWithUtils.min.js"></script>
+  <script src="../assets/vendor/intl-tel-input/js/i18n-es.js"></script>
   <script src="../assets/js/site.js"></script>
   <script src="../assets/js/forms.js"></script>
   <script>
@@ -312,6 +315,7 @@
 
     const horarioLabel = { AM: 'en la mañana (AM)', PM: 'en la tarde (PM)' };
 
+    initPhoneField('a-telefono');
     simulateSubmit('agendaForm', 'agendaSuccess', {
       beforeSubmit: (form) => {
         if (!form.fecha.value) {

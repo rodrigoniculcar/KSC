@@ -888,6 +888,42 @@ body::before {
   display: none;
 }
 
+/* ---------- Teléfono con bandera y código de país (intl-tel-input) ---------- */
+.field .iti {
+  width: 100%;
+}
+
+.field .iti input[type="tel"] {
+  width: 100%;
+}
+
+.field .iti__search-input {
+  border-radius: 0;
+  border-width: 0 0 1px;
+  padding: 10px 28px 10px 34px;
+}
+
+.field-error {
+  font-size: 0.78rem;
+  color: var(--coaching-700);
+  min-height: 0;
+}
+
+.field-error:empty {
+  display: none;
+}
+
+/* ---------- Resultado del pago (Getnet) ---------- */
+.success-panel.pago-pendiente .check {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.success-panel.pago-error .check {
+  background: var(--surface-muted);
+  color: var(--ink-700);
+}
+
 /* ---------- Time slot picker (agenda) ---------- */
 .slot-grid {
   display: grid;

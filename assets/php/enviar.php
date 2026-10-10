@@ -53,6 +53,7 @@ $etiquetas = [
     'apellido' => 'Apellido',
     'email' => 'Correo electrónico',
     'telefono' => 'Teléfono',
+    'pais_telefono' => 'País del teléfono',
     'ciudad' => 'Ciudad / comuna',
     'ocupacion' => 'Ocupación actual',
     'conociste' => '¿Cómo se enteró?',
@@ -64,7 +65,7 @@ $etiquetas = [
 
 $lineas = [];
 foreach ($_POST as $campo => $valor) {
-    if (in_array($campo, ['form_type', 'website'], true)) {
+    if (in_array($campo, ['form_type', 'website', 'telefono_visible'], true)) {
         continue;
     }
     $valor = is_string($valor) ? trim($valor) : $valor;
