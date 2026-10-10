@@ -1901,3 +1901,55 @@ body::before {
     flex-direction: column;
   }
 }
+
+/* Módulos (malla) */
+.mod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.mod-card {
+  background: #ffffff;
+  border: 1px solid rgba(168, 140, 106, 0.14);
+  border-top: 4px solid var(--coaching-600);
+  padding: 22px 22px 26px;
+}
+
+.mod-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--coaching-50);
+  color: var(--coaching-700);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.mod-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  line-height: 1.3;
+  margin: 14px 0 10px;
+  color: var(--ink-900);
+}
+
+.mod-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-500);
+}
+
+@media (max-width: 1000px) {
+  .mod-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .mod-grid {
+    grid-template-columns: 1fr;
+  }
+}
